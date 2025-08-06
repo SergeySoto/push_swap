@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/05 18:15:15 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/06 18:29:42 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "./libft/libft.h"
 # include <limits.h>
 # include <unistd.h>
+
 typedef struct t_node
 {
 	int				data;

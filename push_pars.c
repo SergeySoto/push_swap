@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/05 19:27:20 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:15:47 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int	is_number_valid(char *str)
 {
 	int	i;
-
 	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		i++;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	if (!str[i])
@@ -30,72 +31,80 @@ int	is_number_valid(char *str)
 	return (1);
 }
 
-int	has_duplicates(char *str)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	i = 0;
-	while(str[i])
-	{
-		j = i + 1;
-		while(str[j])
-		{
-			if (str[i] == str[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
 long	ft_atol(char *str)
 {
-	int		i;
-	int		symbol;
-	long	res;
+	int	i;
+	int	symbol;
+	long long int	res;
 
 	res = 0;
 	symbol = 1;
 	i = 0;
-	if (str[0] == '-' || str[0] == '+')
+	while(str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[0] == '-')
+		if (str[i] == '-')
 			symbol *= -1;
 		i++;
 	}
 	while(str[i] >= '0' && str[i] <= '9')
 	{
+		if (res <= LLONG_MIN || res >= LLONG_MAX)
+			return(res * symbol);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
 	return (res * symbol);
 }
 
-int	is_int_in_range(char *str)
+int	is_int_in_range(long num)
 {
-	long num;
-
-	num = ft_atol(str);
 	if (num < INT_MIN || num > INT_MAX)
 		return (0);
 	return (1);
 }
 
-//funcion que parsea todos los argumentos en un solo array de int
-int	parse_arguments(char** str, int size)
+int	*parse_arguments(int size, char** str)
 {
-	int	i;
-	int	*numbers;
-	i = 0;
+	int		i;
+	int		*num_list;
+	long	num_temp;
 
-	numbers = malloc((int*)sizeof(size));
-	while(i < size)
+	i = 0;
+	num_list = (int *)malloc((size) * sizeof(int));
+	if (!num_list)
+		return (NULL);
+	while(i < size - 1)
 	{
-		numbers[i] = ft_atol(str[i]);
+		num_temp = ft_atol(str[i + 1]);
+		if (!is_int_in_range(num_temp))
+		{
+			free(num_list);
+			return (NULL);
+		}
+		num_list[i] = num_temp;
 		i++;
 	}
-	return (numbers);
+	return (num_list);
+}
+
+int	has_duplicates(int size, int *num_list)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while(j < size)
+		{
+			if (num_list[i] == num_list[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
