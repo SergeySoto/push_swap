@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/06 19:15:47 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/11 13:58:10 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 int	is_number_valid(char *str)
 {
 	int	i;
+	int	len;
+
+	len = ft_strlen(str);
+	if (len > 12)
+		return (0);
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
@@ -33,9 +38,9 @@ int	is_number_valid(char *str)
 
 long	ft_atol(char *str)
 {
-	int	i;
-	int	symbol;
-	long long int	res;
+	int		i;
+	int		symbol;
+	long	res;
 
 	res = 0;
 	symbol = 1;
@@ -50,8 +55,6 @@ long	ft_atol(char *str)
 	}
 	while(str[i] >= '0' && str[i] <= '9')
 	{
-		if (res <= LLONG_MIN || res >= LLONG_MAX)
-			return(res * symbol);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
@@ -65,19 +68,19 @@ int	is_int_in_range(long num)
 	return (1);
 }
 
-int	*parse_arguments(int size, char** str)
+int	*parse_arguments(int argc, char **argv)
 {
 	int		i;
 	int		*num_list;
 	long	num_temp;
 
 	i = 0;
-	num_list = (int *)malloc((size) * sizeof(int));
+	num_list = (int *)malloc((argc - 1) * sizeof(int));
 	if (!num_list)
 		return (NULL);
-	while(i < size - 1)
+	while(i < argc - 1)
 	{
-		num_temp = ft_atol(str[i + 1]);
+		num_temp = ft_atol(argv[i + 1]);
 		if (!is_int_in_range(num_temp))
 		{
 			free(num_list);

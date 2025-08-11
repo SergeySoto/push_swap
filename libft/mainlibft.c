@@ -160,20 +160,24 @@ int	main(void)
 	// while (result[i] != NULL)
 	// {
 	// 	printf("%s\n", result[i]);
+	// 	free(result[i]);
 	// 	i++;
 	// }
-	// free_mem(result, word_count(str, c));
+	// //free_mem(result, word_count(str, c));
 	// free (result);
- 	int fd;
- 	char *line = NULL;
 
-	fd = open("ft_strlen.c", O_RDONLY);
- 	while ((line = get_next_line(fd))!= NULL)
- 	{
- 		printf("%s", line);
- 		free(line);
- 	}
- 	free(line);
- 	close(fd);
+	// printf("****Funcion get_next_line****\n");
+ 	// int fd;
+ 	// char *line = NULL;
+
+	// fd = open("ft_strlen.c", O_RDONLY);
+ 	// while ((line = get_next_line(fd))!= NULL)
+ 	// {
+ 	// 	printf("%s", line);
+ 	// 	free(line);
+ 	// }
+ 	// free(line);
+ 	// close(fd);
+
 	return (0);
 }
