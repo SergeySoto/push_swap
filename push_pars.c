@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/13 17:44:04 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/13 18:54:46 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,13 @@ int	*parse_arguments(int count, char **array)
 		if (!is_number_valid(*array[i]))
 		{
 			free(num_list);
-			return (NULL);
+			printf_error();
 		}
 		num_temp = ft_atol(*array[i]);
 		if (!is_int_in_range(num_temp))
 		{
 			free(num_list);
-			return (NULL);
+			printf_error();
 		}
 		num_list[i] = (int)num_temp;
 		i++;

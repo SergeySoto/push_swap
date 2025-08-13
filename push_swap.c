@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/13 17:46:11 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/13 19:00:50 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ char	**get_input(int	argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)*argv;
+	// (void)argc;
+	// (void)*argv;
 
 	// write(1, "puta!\n", 6);
 	// printf_error();
@@ -90,21 +90,33 @@ int	main(int argc, char **argv)
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
 	
-	char **arr = ft_split(&argv[1][0], ' ');
-	int *list = parse_arguments(word_count(&argv[1][0], ' '), arr); 
+	// char **arr = ft_split(&argv[1][0], ' ');
+	// int *list = parse_arguments(word_count(&argv[1][0], ' '), arr); 
+	// int i = 0;
+	// while(i < 5)
+	// {
+	// 	printf("%d\n", list[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while(i < 5)
+	// {
+	// 	free(arr[i]);
+	// 	i++;
+	// }
+	// free(arr);
+	// free(list);
+	char	**num_array;
+	int		*num_list;
+	int		num;
+	num_array = get_input(argc, argv);
 	int i = 0;
-	while(i < 5)
+	while( i < argc)
 	{
-		printf("%d\n", list[i]);
+		num = word_count(argv[i + 1],' ');
+		num_list = parse_arguments(num,num_array);
 		i++;
 	}
-	i = 0;
-	while(i < 5)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	free(list);
+
 	return (0);
 }
