@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/11 13:58:10 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:44:04 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_number_valid(char *str)
 	int	len;
 
 	len = ft_strlen(str);
-	if (len > 12)
+	if (len > 11)
 		return (0);
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
@@ -41,7 +41,8 @@ long	ft_atol(char *str)
 	int		i;
 	int		symbol;
 	long	res;
-
+	if (!str)
+		return (0);
 	res = 0;
 	symbol = 1;
 	i = 0;
@@ -68,25 +69,30 @@ int	is_int_in_range(long num)
 	return (1);
 }
 
-int	*parse_arguments(int argc, char **argv)
+int	*parse_arguments(int count, char **array)
 {
 	int		i;
 	int		*num_list;
 	long	num_temp;
 
 	i = 0;
-	num_list = (int *)malloc((argc - 1) * sizeof(int));
+	num_list = (int *)malloc(count * sizeof(int));
 	if (!num_list)
 		return (NULL);
-	while(i < argc - 1)
+	while(i < count)
 	{
-		num_temp = ft_atol(argv[i + 1]);
+		if (!is_number_valid(*array[i]))
+		{
+			free(num_list);
+			return (NULL);
+		}
+		num_temp = ft_atol(*array[i]);
 		if (!is_int_in_range(num_temp))
 		{
 			free(num_list);
 			return (NULL);
 		}
-		num_list[i] = num_temp;
+		num_list[i] = (int)num_temp;
 		i++;
 	}
 	return (num_list);
