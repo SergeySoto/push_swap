@@ -1,28 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   func_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:17:22 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/14 19:44:56 by ssoto-su         ###   ########.fr       */
+/*   Created: 2025/08/14 18:15:17 by ssoto-su          #+#    #+#             */
+/*   Updated: 2025/08/14 18:27:54 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	printf_error(void)
 {
-	size_t	len_s1s2;
-	char	*str;
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-	len_s1s2 = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)ft_calloc(len_s1s2 + 1, sizeof(char));
+void	free_array(char **str)
+{
+	int	i;
 	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s1, len_s1s2 + 1);
-	ft_strlcat(str, s2, len_s1s2 + 1);
-	return (str);
+		return ;
+	i = 0;
+	while(str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+void	free_str(char *str)
+{
+	if (str)
+		free(str);
+}
+
+void	free_int(int *str)
+{
+	if (str)
+		free(str);
 }

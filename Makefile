@@ -6,7 +6,8 @@ CFLAGS = -Wall -Wextra -Werror -I./libft
 LIBFT_DIR = ./libft/
 LIBFT = $(LIBFT_DIR)libft.a
 
-SRC = push_swap.c push_pars.c
+SRC = push_swap.c push_pars.c func_error.c \
+		check_utils/printsss.c
 
 INCLUDE = ./libft/libft.h
 
@@ -32,6 +33,7 @@ ejecutarall:
 # rule to delete all the .o created
 clean:
 	rm -f $(OBJ)
+	rm -f check_utils/*.o
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 # delete all files .o and .a

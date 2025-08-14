@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/13 18:54:46 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:02:18 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 int	is_number_valid(char *str)
 {
 	int	i;
-	int	len;
 
-	len = ft_strlen(str);
-	if (len > 11)
-		return (0);
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
@@ -58,6 +54,8 @@ long	ft_atol(char *str)
 	{
 		res = (res * 10) + (str[i] - '0');
 		i++;
+		if (res * symbol < INT_MIN || res * symbol > INT_MAX)
+			return (res);
 	}
 	return (res * symbol);
 }
@@ -81,12 +79,12 @@ int	*parse_arguments(int count, char **array)
 		return (NULL);
 	while(i < count)
 	{
-		if (!is_number_valid(*array[i]))
+		if (!is_number_valid(array[i]))
 		{
-			free(num_list);
 			printf_error();
+			free_int(num_list);
 		}
-		num_temp = ft_atol(*array[i]);
+		num_temp = ft_atol(array[i]);
 		if (!is_int_in_range(num_temp))
 		{
 			free(num_list);
