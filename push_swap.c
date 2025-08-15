@@ -63,30 +63,31 @@ char	**get_input(int	argc, char **argv)
 	return (num_array);
 }
 
-// int	*parse_array(char **array)
-// {
-// 	int		i;
-// 	int		*num_list;
-// 	int		*len;
+int	*parse_array(char **array, int *len)
+{
+	int		i;
+	int		*num_list;
 
-// 	*len = len_array(array);
-// 	i = 0;
-// 	num_list = (int *)malloc(*len * sizeof(int));
-// 	if (!num_list)
-// 		return (NULL);
-// 	while(i < len)
-// 	{
-// 		if (!is_number_valid(*array[i]))
-// 		{
-// 			free_int(num_list);
-// 			printf_error();
-// 			return (NULL);
-// 		}
-// 		num_list[i] = ft_atol(*array[i]);
-// 		i++;
-// 	}
-// 	return (num_list);
-// }
+	if (!array || !len)
+		return (NULL);
+	*len = len_array(array);
+	i = 0;
+	num_list = (int *)malloc(*len * sizeof(int));
+	if (!num_list)
+		return (NULL);
+	while(i < len[0])
+	{
+		if (!is_number_valid(array[i]))
+		{
+			free_int(num_list);
+			printf_error();
+			return (NULL);
+		}
+		num_list[i] = ft_atol(array[i]);
+		i++;
+	}
+	return (num_list);
+}
 
 // int	*parse_list(int	*num_list, int *len)
 // {
@@ -123,10 +124,29 @@ int	main(int argc, char **argv)
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
 	
-	char **arr = ft_split(&argv[1][0], ' ');
-	int len = word_count(&argv[1][0], ' ');
-	int *list = parse_arguments(len, arr); 
+	// char **arr = ft_split(&argv[1][0], ' ');
+	// int len = word_count(&argv[1][0], ' ');
+	// int *list = parse_arguments(len, arr); 
+	// int i = 0;
+	// printf("la longitud: %d\n", len);
+	// while(i < len)
+	// {
+	// 	printf("%d\n", list[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while(i < len)
+	// {
+	// 	free(arr[i]);
+	// 	i++;
+	// }
+	// free(arr);
+	// free(list);
+	int len;
+	char **arr = get_input(argc, argv);
+	int *list = parse_array(arr, &len); 
 	int i = 0;
+	printf("la longitud: %d\n", len);
 	while(i < len)
 	{
 		printf("%d\n", list[i]);

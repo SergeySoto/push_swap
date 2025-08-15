@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -I./libft
 LIBFT_DIR = ./libft/
 LIBFT = $(LIBFT_DIR)libft.a
 
-SRC = push_swap.c push_pars.c func_error.c \
+SRC = push_swap.c push_pars.c push_utils.c func_error.c \
 		check_utils/printsss.c
 
 INCLUDE = ./libft/libft.h
