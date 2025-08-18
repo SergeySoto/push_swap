@@ -30,11 +30,11 @@ all: $(NAME)
 
 # regla para crear la biblioteca
 $(NAME): $(OBJ)  
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 # pasar archivos .c a .o
 %.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 bonus: $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ_BONUS)
@@ -45,11 +45,11 @@ ejecutarall:
 
 # regla para eliminar todos los archivos objetos creados
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 # Eliminar todos los archivos .o y .a
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 # recompila
 re: fclean all

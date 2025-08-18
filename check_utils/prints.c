@@ -12,19 +12,12 @@ void	print_array(char **argv)
 		printf("\n");
 		i++;
 	}
-	i = 0;
-	while(argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
 }
 
-void	print_list(int *len, int *list)
+void	print_list(int len, int *list)
 {
 	int i = 0;
-	while(i < *len)
+	while(i < len)
 	{
 		printf("%d\n", list[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 18:09:17 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/18 19:50:57 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ int	main(int argc, char **argv)
 		free_array(arr);
 		return (0);
 	}
+	print_array(arr);
 	int *list = parse_array(arr, &len);
 	if (!list)
 	{
@@ -140,15 +141,16 @@ int	main(int argc, char **argv)
 		free_int(list);
 		return (0);
 	}
+	print_list(len, list);
+	printf("la longitud: %d\n", len);
 	if (!parse_list(list, &len))
 	{
 		free_array(arr);
 		free_int(list);
 		return (0);
 	}
-	printf("la longitud: %d\n", len);
-	print_array(arr);
 	free_int(list);
+	free_array(arr);
 	//-----------------------------------------
 
 	return (0);

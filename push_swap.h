@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 18:05:46 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/18 19:39:44 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		word_count(const char *s, char c);
 int		len_array(char **array);
 void	printf_error(void);
 void	print_array(char **argv);
-void	print_list(int *len, int *list);
+void	print_list(int len, int *list);
 void	free_array(char **str);
 void	free_str(char *str);
 void	free_int(int *str);

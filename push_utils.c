@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:09:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 17:43:09 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/18 19:42:00 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	len_array(char **array)
 {
 	int	len;
+
 	len = 0;
 	if (!array)
 		return (0);
