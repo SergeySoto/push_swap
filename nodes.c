@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_utils.c                                       :+:      :+:    :+:   */
+/*   nodes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/05 18:02:47 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/18 18:05:25 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_newnode(int data)
+t_node	*ft_newnode(int data, int index)
 {
 	t_node	*node;
 
@@ -20,6 +20,7 @@ t_node	*ft_newnode(int data)
 	if (!node)
 		return (NULL);
 	node->data = data;
+	node->index = index;
 	node->next = NULL;
 	return (node);
 }

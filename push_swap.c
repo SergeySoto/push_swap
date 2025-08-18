@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/14 20:09:56 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/18 18:09:17 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,19 +89,21 @@ int	*parse_array(char **array, int *len)
 	return (num_list);
 }
 
-// int	*parse_list(int	*num_list, int *len)
-// {
-// 	int	i;
+int	parse_list(int	*num_list, int *len)
+{
+	int	i;
 
-// 	i = 0;
-// 	while(i < len)
-// 	{
-// 		if(!is_int_in_range(num_list))
-// 		{
-			
-// 		}
-// 	}
-// }
+	i = 0;
+	while(i < *len)
+	{
+		if(!is_int_in_range(num_list[i]))
+			return (0);
+		i++;
+	}
+	if(has_duplicates(len, num_list))
+		return (0);
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -123,43 +125,31 @@ int	main(int argc, char **argv)
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483647")));
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
-	
-	// char **arr = ft_split(&argv[1][0], ' ');
-	// int len = word_count(&argv[1][0], ' ');
-	// int *list = parse_arguments(len, arr); 
-	// int i = 0;
-	// printf("la longitud: %d\n", len);
-	// while(i < len)
-	// {
-	// 	printf("%d\n", list[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// while(i < len)
-	// {
-	// 	free(arr[i]);
-	// 	i++;
-	// }
-	// free(arr);
-	// free(list);
+	//-----------------------------------------
 	int len;
 	char **arr = get_input(argc, argv);
-	int *list = parse_array(arr, &len); 
-	int i = 0;
+	if (!arr)
+	{
+		free_array(arr);
+		return (0);
+	}
+	int *list = parse_array(arr, &len);
+	if (!list)
+	{
+		free_array(arr);
+		free_int(list);
+		return (0);
+	}
+	if (!parse_list(list, &len))
+	{
+		free_array(arr);
+		free_int(list);
+		return (0);
+	}
 	printf("la longitud: %d\n", len);
-	while(i < len)
-	{
-		printf("%d\n", list[i]);
-		i++;
-	}
-	i = 0;
-	while(i < len)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	free(list);
+	print_array(arr);
+	free_int(list);
+	//-----------------------------------------
 
 	return (0);
 }
