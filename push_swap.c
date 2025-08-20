@@ -12,30 +12,8 @@
 
 #include "push_swap.h"
 
-int	word_count(char const *s, char c)
-{
-	int	i;
-	int	count;
-	int	flag;
-
-	i = 0;
-	flag = 0;
-	count = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] != c && flag == 0)
-		{
-			count++;
-			flag = 1;
-		}
-		if (s[i] == c)
-		{
-			flag = 0;
-		}
-		i++;
-	}
-	return (count);
-}
+// int	word_count(char const *s, char c)
+// Funcion eliminada, nunca estuve usando la funcion.
 
 char	**get_input(int	argc, char **argv)
 {
@@ -111,56 +89,56 @@ int	parse_list(int	*num_list, int *len)
 	return (1);
 }
 
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	// (void)*argv;
+// int	main(int argc, char **argv)
+// {
+// 	(void)argc;
+// 	// (void)*argv;
 
-	// write(1, "puta!\n", 6);
-	// printf_error();
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     123  	", " \n\t")));
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     1223f	", " \n\t")));
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("			   -12123		", " \n\t")));
-	// ft_printf("\n");
-	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483648"));
-	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483647"));
-	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483649"));
-	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483648"));
-	// ft_printf("\n");
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483648")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483647")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
-	//-----------------------------------------
-	int len;
-	char **arr = get_input(argc, argv);
-	if (!arr)
-	{
-		free_array(arr);
-		return (0);
-	}
-	ft_putstr_fd("Este es el array:\n", 2);
-	print_array(arr);
-	int *list = parse_array(arr, &len);
-	if (!list)
-	{
-		// free_array(arr);
-		// free_int(list);
-		return (0);
-	}
-	ft_putstr_fd("Esta es la lista de int:\n", 2);
-	print_list(len, list);
-	printf("la longitud: %d\n", len);
-	if (!parse_list(list, &len))
-	{
-		free_array(arr);
-		free_int(list);
-		printf_error();
-		return (0);
-	}
-	free_int(list);
-	free_array(arr);
-	//-----------------------------------------
+// 	// write(1, "puta!\n", 6);
+// 	// printf_error();
+// 	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     123  	", " \n\t")));
+// 	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     1223f	", " \n\t")));
+// 	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("			   -12123		", " \n\t")));
+// 	// ft_printf("\n");
+// 	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483648"));
+// 	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483647"));
+// 	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483649"));
+// 	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483648"));
+// 	// ft_printf("\n");
+// 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483648")));
+// 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483647")));
+// 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
+// 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
+// 	//-----------------------------------------
+// 	int len;
+// 	char **arr = get_input(argc, argv);
+// 	if (!arr)
+// 	{
+// 		free_array(arr);
+// 		return (0);
+// 	}
+// 	ft_putstr_fd("Este es el array:\n", 2);
+// 	print_array(arr);
+// 	int *list = parse_array(arr, &len);
+// 	if (!list)
+// 	{
+// 		// free_array(arr);
+// 		// free_int(list);
+// 		return (0);
+// 	}
+// 	ft_putstr_fd("Esta es la lista de int:\n", 2);
+// 	print_list(len, list);
+// 	printf("la longitud: %d\n", len);
+// 	if (!parse_list(list, &len))
+// 	{
+// 		free_array(arr);
+// 		free_int(list);
+// 		printf_error();
+// 		return (0);
+// 	}
+// 	free_int(list);
+// 	free_array(arr);
+// 	//-----------------------------------------
 
-	return (0);
-}
+// 	return (0);
+// }

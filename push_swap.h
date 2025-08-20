@@ -34,7 +34,6 @@ int		is_int_in_range(long num);
 long	ft_atol(char *str);
 int		is_number_valid(char *str);
 char 	**get_input(int argc, char **argv);
-int		word_count(const char *s, char c);
 int		len_array(char **array);
 void	printf_error(void);
 void	print_array(char **argv);
@@ -42,5 +41,10 @@ void	print_list(int len, int *list);
 void	free_array(char **str);
 void	free_str(char *str);
 void	free_int(int *str);
+int	new_word_count(char const *s, char c);
+char *new_join_args(int argc, char **argv);
+char	**new_get_input(int	argc, char **argv);
+int	*parse_array(char **array, int *len);
+int	parse_list(int	*num_list, int *len);
 
 #endif
