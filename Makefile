@@ -39,7 +39,7 @@ $(OBJ_DIR)/%.o: %.c $(INCLUDE)
 # Compile libft with messages
 $(LIBFT):
 	@echo "📦 Compiling libft..."
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
 	@if [ $$? -eq 0 ]; then \
 		echo "✅ libft compiled successfully!"; \
 	else \
@@ -57,13 +57,13 @@ ejecutarall: $(SRC) $(LIBFT)
 clean:
 	@echo "🧹 Cleaning object files..."
 	@rm -rf $(OBJ_DIR)
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
 
 # Clean everything
 fclean: clean
 	@echo "🧹 Removing binaries..."
 	@rm -f $(NAME) push_swap_test
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
 
 # Rebuild all
 re: fclean all
