@@ -42,7 +42,7 @@ void	free_array(char **str);
 void	free_str(char *str);
 void	free_int(int *str);
 int	new_word_count(char const *s, char c);
-char *new_join_args(int argc, char **argv);
+char *new_join_args(int argc, char **argv, char *initial_str);
 char	**new_get_input(int	argc, char **argv);
 int	*parse_array(char **array, int *len);
 int	parse_list(int	*num_list, int *len);
