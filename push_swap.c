@@ -6,21 +6,14 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 19:50:57 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/21 19:13:22 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	word_count(char const *s, char c)
-// Funcion eliminada, nunca estuve usando la funcion.
-
-
 int	main(int argc, char **argv)
 {
-	
-	// (void)*argv;
-
 	// write(1, "puta!\n", 6);
 	// printf_error();
 	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     123  	", " \n\t")));
@@ -38,32 +31,28 @@ int	main(int argc, char **argv)
 	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
 	//-----------------------------------------
 	int len;
-	char **arr = new_get_input(argc, argv);
+	char **arr = get_input(argc, argv);
 	if (!arr)
 	{
 		free_array(arr);
 		return (0);
 	}
-	ft_putstr_fd("Este es el array:\n", 2);
-	print_array(arr);
-	int *list = parse_array(arr, &len);
+	//ft_putstr_fd("Este es el array:\n", 2);
+	//print_array(arr);
+	long *list = parse_array(arr, &len);
 	if (!list)
-	{
-		// free_array(arr);
-		// free_int(list);
 		return (0);
-	}
-	ft_putstr_fd("Esta es la lista de int:\n", 2);
-	print_list(len, list);
-	printf("la longitud: %d\n", len);
+	//ft_putstr_fd("Esta es la lista de int:\n", 2);
+	//print_list(len, list);
+	//printf("la longitud: %d\n", len);
 	if (!parse_list(list, &len))
 	{
 		free_array(arr);
-		free_int(list);
+		free_long(list);
 		printf_error();
 		return (0);
 	}
-	free_int(list);
+	free_long(list);
 	free_array(arr);
 	//-----------------------------------------
 

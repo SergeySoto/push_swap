@@ -6,11 +6,12 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:09:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 19:42:00 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/21 17:58:32 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft/libft.h"
+#include "../push_swap.h"
 
 int	len_array(char **array)
 {

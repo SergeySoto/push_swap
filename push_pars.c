@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 18:01:38 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 18:02:55 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/21 19:13:03 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,79 +39,7 @@ int	is_int_in_range(long num)
 	return (1);
 }
 
-int	*parse_array(char **array, int *len)
-{
-	int		i;
-	int		*num_list;
-
-	if (!array || !len)
-		return (NULL);
-	*len = len_array(array);
-	i = 0;
-	num_list = (int *)malloc(*len * sizeof(int));
-	if (!num_list)
-		return (NULL);
-	while(i < len[0])
-	{
-		if (!is_number_valid(array[i]))
-		{
-			free_int(num_list);
-			free_array(array);
-			printf_error();
-			return (NULL);
-		}
-		num_list[i] = ft_atol(array[i]);
-		i++;
-	}
-	return (num_list);
-}
-
-int	parse_list(int	*num_list, int *len)
-{
-	int	i;
-
-	i = 0;
-	while(i < *len)
-	{
-		if(!is_int_in_range(num_list[i]))
-			return (0);
-		i++;
-	}
-	if(has_duplicates(len, num_list))
-		return (0);
-	return (1);
-}
-
-// int	*parse_arguments(int count, char **array)
-// {
-// 	int		i;
-// 	int		*num_list;
-// 	long	num_temp;
-
-// 	i = 0;
-// 	num_list = (int *)malloc(count * sizeof(int));
-// 	if (!num_list)
-// 		return (NULL);
-// 	while(i < count)
-// 	{
-// 		if (!is_number_valid(array[i]))
-// 		{
-// 			printf_error();
-// 			free_int(num_list);
-// 		}
-// 		num_temp = ft_atol(array[i]);
-// 		if (!is_int_in_range(num_temp))
-// 		{
-// 			free(num_list);
-// 			printf_error();
-// 		}
-// 		num_list[i] = (int)num_temp;
-// 		i++;
-// 	}
-// 	return (num_list);
-// }
-
-int	has_duplicates(int *size, int *num_list)
+int	has_duplicates(int *size, long *num_list)
 {
 	int	i;
 	int	j;
@@ -129,4 +57,47 @@ int	has_duplicates(int *size, int *num_list)
 		i++;
 	}
 	return (0);
+}
+
+long	*parse_array(char **array, int *len)
+{
+	int		i;
+	long		*num_list;
+
+	if (!array || !len)
+		return (NULL);
+	*len = len_array(array);
+	i = 0;
+	num_list = (long *)malloc(*len * sizeof(long));
+	if (!num_list)
+		return (NULL);
+	while(i < *len)
+	{
+		if (!is_number_valid(array[i]))
+		{
+			free_long(num_list);
+			free_array(array);
+			printf_error();
+			return (0);
+		}
+		num_list[i] = ft_atol(array[i]);
+		i++;
+	}
+	return (num_list);
+}
+
+int	parse_list(long	*num_list, int *len)
+{
+	int	i;
+
+	i = 0;
+	while(i < *len)
+	{
+		if(!is_int_in_range(num_list[i]))
+			return (0);
+		i++;
+	}
+	if(has_duplicates(len, num_list))
+		return (0);
+	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prints.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
+/*   Updated: 2025/08/21 17:44:19 by ssoto-su         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
 #include "../push_swap.h"
 
@@ -14,12 +26,12 @@ void	print_array(char **argv)
 	}
 }
 
-void	print_list(int len, int *list)
+void	print_list(int len, long *list)
 {
 	int i = 0;
 	while(i < len)
 	{
-		printf("%d\n", list[i]);
+		printf("%ld\n", list[i]);
 		i++;
 	}
 }

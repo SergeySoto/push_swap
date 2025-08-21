@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:15:17 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/18 17:43:15 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/21 17:12:28 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	free_str(char *str)
 		free(str);
 }
 
-void	free_int(int *str)
+void	free_long(long *str)
 {
 	if (str)
 		free(str);
