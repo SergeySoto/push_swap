@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/21 17:16:19 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/22 19:18:08 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct t_node
 }					t_node;
 
 t_node	*ft_newnode(int data, int index);
-void	ft_add_node_back(t_node **node, t_node *new);
-t_node	*ft_last_node(t_node *node);
+void	ft_add_node_back(t_node *node, int *len, t_node *new);
+t_node	*ft_last_node(t_node *node, int *len);
+t_node	*list_to_node(int *len, long *list);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);
@@ -37,9 +38,11 @@ int		len_array(char **array);
 void	printf_error(void);
 void	print_array(char **argv);
 void	print_list(int len, long *list);
+void	print_node(int *len, t_node *node);
 void	free_array(char **str);
 void	free_str(char *str);
 void	free_long(long *str);
+void	free_node(t_node *node, int *len);
 char	*join_args(int argc, char **argv, char *initial_str);
 char	**get_input(int	argc, char **argv);
 long	*parse_array(char **array, int *len);

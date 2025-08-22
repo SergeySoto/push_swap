@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/21 19:13:22 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/22 18:21:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 	//-----------------------------------------
 	int len;
 	char **arr = get_input(argc, argv);
+	t_node *node_list;
+
 	if (!arr)
 	{
 		free_array(arr);
@@ -52,6 +54,10 @@ int	main(int argc, char **argv)
 		printf_error();
 		return (0);
 	}
+	ft_putstr_fd("Esta es la lista de nodos:\n", 2);
+	node_list = list_to_node(&len, list);
+	print_node(&len, node_list);
+	free_node(node_list, &len);
 	free_long(list);
 	free_array(arr);
 	//-----------------------------------------
