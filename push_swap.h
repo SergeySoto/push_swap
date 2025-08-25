@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/22 19:18:08 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:07:23 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ typedef struct t_node
 }					t_node;
 
 t_node	*ft_newnode(int data, int index);
-void	ft_add_node_back(t_node *node, int *len, t_node *new);
+t_node	*add_node_back(t_node *first_node, int *len, long *num_list);
 t_node	*ft_last_node(t_node *node, int *len);
-t_node	*list_to_node(int *len, long *list);
+t_node	*two_nodes(int *len, long *num_list);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);

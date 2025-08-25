@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:15:17 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/22 18:35:30 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/25 18:02:35 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ void	free_long(long *str)
 void	free_node(t_node *node, int *len)
 {
 	int	i;
+	t_node	*temp;
 
 	i = 0;
 	while(i < *len)
 	{
+		temp = node->next;
 		free(node);
-		node = node->next;
+		node = temp;
 		i++;
 	}
 }
