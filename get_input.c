@@ -42,6 +42,7 @@ char	**get_input(int	argc, char **argv)
 
 	if (argc == 1)
 		return (NULL);
+	//crar un funcion que busque un caracter, de no encontrarlo. ERROR!
 	joined_args = ft_strdup(argv[1]);
 	if (argc > 2)
 		joined_args = join_args(argc, argv, joined_args);
