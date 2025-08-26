@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/25 19:48:27 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/26 19:27:01 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,7 @@ void	print_list(int len, long *list)
 	}
 }
 
-void	print_node(int *len, t_node *node)
+void	print_node(t_node *node)
 {
-	int	i;
-
-	i = 0;
-	while(i < *len)
-	{
-		printf("%d\n", node->data);
-		node = node->next;
-		i++;
-	}
+	printf("Este es el indice: %d y el nodo: %d\n", node->index, node->data);
 }
