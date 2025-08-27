@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 18:02:08 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:04:02 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*ft_newnode(int data, int index)
 	if (!node)
 		return (NULL);
 	node->data = data;
-	node->index = (int)index;
+	node->index = index;
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);
@@ -35,10 +35,20 @@ t_node	*ft_last_node(t_node *node)
 	return (node);
 }
 
+void	list_to_circle(t_node **head)
+{
+	t_node	*temp;
+	t_node	*last;
+
+	temp = (*head);
+	last = ft_last_node((*head));
+	last->next = temp;
+	temp->prev = last;
+}
+
 void	add_node_back(t_node **list_head, t_node *new)
 {
 	t_node	*last;
-	//t_node	*head;
 
 	if (!new)
 		return ;
@@ -47,7 +57,6 @@ void	add_node_back(t_node **list_head, t_node *new)
 		*list_head = new;
 		return ;
 	}
-	//head = (*list_head)->prev;
 	last = ft_last_node(*list_head);
 	last->next = new;
 	new->prev = last;
@@ -69,15 +78,4 @@ t_node	*create_node_list(int *len, long *list)
 		list++;
 	}
 	return (head);
-}
-
-void	lstiter(t_node *lst, void (f)(t_node *))
-{
-	if (!lst)
-		return ;
-	while (lst != NULL)
-	{
-		f(lst);
-		lst = lst->next;
-	}
 }

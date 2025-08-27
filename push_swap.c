@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 17:17:52 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:02:25 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 	}
 	t_node	*stack_a = create_node_list(&len, list);
 	t_node	*stack_b = NULL;
+	list_to_circle(&stack_a);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a, print_node);
 	printf("--------------Stack B--------------\n");
