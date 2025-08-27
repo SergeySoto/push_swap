@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/26 19:21:38 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 18:02:08 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_node	*ft_last_node(t_node *node)
 void	add_node_back(t_node **list_head, t_node *new)
 {
 	t_node	*last;
+	//t_node	*head;
 
 	if (!new)
 		return ;
@@ -46,6 +47,7 @@ void	add_node_back(t_node **list_head, t_node *new)
 		*list_head = new;
 		return ;
 	}
+	//head = (*list_head)->prev;
 	last = ft_last_node(*list_head);
 	last->next = new;
 	new->prev = last;

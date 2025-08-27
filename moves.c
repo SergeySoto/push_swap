@@ -1,5 +1,8 @@
 // sa (swap a): Swap the first 2 elements at the top of the stack a. Does nothing if there is only one or none. 
-
+void	sa()
+{
+	
+}
 // sb (swap b) : Swap the first 2 elements at the top of the stack b. Does nothing if there is only one or none. 
 
 // ss : sa and sb at the same time. 

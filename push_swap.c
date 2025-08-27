@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 15:56:14 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 17:17:52 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,14 @@ int	main(int argc, char **argv)
 		printf_error();
 		return (0);
 	}
-	t_node	*node_list = create_node_list(&len, list);
-	lstiter(node_list, print_node);
-	free_node(node_list, &len);
+	t_node	*stack_a = create_node_list(&len, list);
+	t_node	*stack_b = NULL;
+	printf("--------------Stack A--------------\n");
+	lstiter(stack_a, print_node);
+	printf("--------------Stack B--------------\n");
+	lstiter(stack_b, print_node);
+	//Aqui deberia ir el ultimo nodo apuntando al head
+	free_node(stack_a, &len);
 	free_long(list);
 	free_array(arr);
 	//-----------------------------------------
