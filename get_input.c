@@ -33,20 +33,39 @@ char *join_args(int argc, char **argv, char *initial_str)
 	return (joined_args);
 }
 
+int	only_space(char *argv)
+{
+	int		i;
+	int		flag;
+
+	i = 0;
+	flag = 0;
+	while (argv[i])
+	{
+		if (argv[i] > 32)
+			flag = 1;
+		i++;
+	}
+	return (flag);
+}
+
 char	**get_input(int	argc, char **argv)
 {
-	//int		i;
 	char	**num_array;
 	char	*joined_args;
-	//char	*temp;
 
+	num_array = NULL;
 	if (argc == 1)
 		return (NULL);
-	//crar un funcion que busque un caracter, de no encontrarlo. ERROR!
-	joined_args = ft_strdup(argv[1]);
-	if (argc > 2)
-		joined_args = join_args(argc, argv, joined_args);
-	num_array = ft_split(joined_args, ' ');
-	free(joined_args);
+	if (only_space(&argv[1][0]))
+	{
+		joined_args = ft_strdup(argv[1]);
+		if (argc > 2)
+			joined_args = join_args(argc, argv, joined_args);
+		num_array = ft_split(joined_args, ' ');
+		free(joined_args);
+	}
+	else
+		printf_error();
 	return (num_array);
 }

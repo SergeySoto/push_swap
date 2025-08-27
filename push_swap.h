@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/26 19:16:00 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:34:38 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	free_long(long *str);
 void	free_node(t_node *node, int *len);
 char	*join_args(int argc, char **argv, char *initial_str);
 char	**get_input(int	argc, char **argv);
+int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 
