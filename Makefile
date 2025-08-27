@@ -15,7 +15,7 @@ INCLUDE = ./libft/libft.h
 LIBFT = $(LIBFT_DIR)libft.a
 
 # Source files
-SRC = push_swap.c push_pars.c push_utils.c func_error.c nodes.c get_input.c\
+SRC = push_swap.c push_pars.c push_utils.c func_error.c nodes.c get_input.c moves.c node_utils.c\
       $(CHECK_UTILS_DIR)/prints.c
 
 # Object files (with obj/ prefix)

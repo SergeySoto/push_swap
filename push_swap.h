@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 18:48:06 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:49:03 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	add_node_back(t_node **lst, t_node *new);
 t_node	*ft_last_node(t_node *node);
 t_node	*create_node_list(int *len, long *list);
 void	lstiter(t_node *lst, void (f)(t_node *));
+void	list_to_circle(t_node **head);
+void	sa(t_node *stack_a, int	*len);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);
@@ -49,6 +51,6 @@ char	**get_input(int	argc, char **argv);
 int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
-void	list_to_circle(t_node **head);
+t_node	*find_node(int index, t_node *stack);
 
 #endif
