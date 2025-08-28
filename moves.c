@@ -6,28 +6,30 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:08:45 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 19:53:37 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/28 19:31:44 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // sa (swap a): Swap the first 2 elements at the top of the stack a. Does nothing if there is only one or none. 
-void	sa(t_node *stack_a, int	*len)
+void	sa(t_node **stack_a)
 {
 	t_node	*first;
 	t_node	*second;
-	t_node	*last;
 
-	first = find_node(0, stack_a);
-	second = find_node(1, stack_a); 
-	last = find_node(*len - 1, stack_a);
-	first->next = last;
-	first->prev = second;
+	first = *stack_a;
+	second = first->next;
+
+	first->prev->next = second;
+	second->next->prev = first;
+
+	first->next = second->next;
+	second->prev = first->prev;
+
 	second->next = first;
-	second->prev = last;
-	last->next = second;
-	last->prev = first;
+	first->prev = second;
+	*stack_a = second;
 }
 // sb (swap b) : Swap the first 2 elements at the top of the stack b. Does nothing if there is only one or none. 
 
