@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/28 17:11:07 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/08/29 19:45:47 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,20 @@ t_node	*ft_last_node(t_node *node);
 t_node	*create_node_list(int *len, long *list);
 void	lstiter(t_node *lst, void (f)(t_node *));
 void	list_to_circle(t_node **head);
+void	swap(t_node **stack);
 void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
+void	push(t_node **src, t_node **dest, int *len1, int *len2);
+void	pa(t_node **stack_a, t_node **stack_b, int *len1, int *len2);
+void	pb(t_node **stack_b, t_node **stack_a, int *len1, int *len2);
+void	rotate(t_node **stack_a);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	reverse_rotate(t_node **node);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);
