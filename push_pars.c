@@ -23,7 +23,7 @@ int	is_number_valid(char *str)
 		i++;
 	if (!str[i])
 		return (0);
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);

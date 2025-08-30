@@ -74,8 +74,8 @@ int	main(int argc, char **argv)
 	rra(&stack_a);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a, print_node);
-	printf("len1: %d\n", len1);
-	printf("len2: %d\n", len2);
+	// printf("len1: %d\n", len1);
+	// printf("len2: %d\n", len2);
 	free_node(stack_a, &len1);
 	free_node(stack_b, &len2);
 	free_long(list);

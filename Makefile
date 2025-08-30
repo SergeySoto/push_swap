@@ -18,7 +18,7 @@ LIBFT = $(LIBFT_DIR)libft.a
 SRC = push_swap.c push_pars.c push_utils.c func_error.c nodes.c\
 get_input.c actions.c moves_A.c moves_B.c move_both.c\
 node_utils.c\
-      $(CHECK_UTILS_DIR)/prints.c
+      $(CHECK_UTILS_DIR)/prints.c\
 
 # Object files (with obj/ prefix)
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))

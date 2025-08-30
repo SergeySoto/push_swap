@@ -108,5 +108,3 @@ char	*get_next_line(int fd)
 	line = update_static(line);
 	return (new_line);
 }
-
-
