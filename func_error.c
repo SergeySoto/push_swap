@@ -44,17 +44,18 @@ void	free_long(long *str)
 		free(str);
 }
 
-void	free_node(t_node *node, int *len)
+void	free_stack(stack *node)
 {
-	int	i;
+	int		i;
 	t_node	*temp;
 
 	i = 0;
-	while(i < *len)
+	while(i < node->len)
 	{
-		temp = node->next;
-		free(node);
-		node = temp;
+		temp = node->node_lst->next;
+		free(node->node_lst);
+		node->node_lst = temp;
 		i++;
 	}
+	free(node);
 }

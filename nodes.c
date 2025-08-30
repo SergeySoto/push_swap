@@ -35,15 +35,15 @@ t_node	*ft_last_node(t_node *node)
 	return (node);
 }
 
-void	list_to_circle(t_node **head)
+void	list_to_circle(stack **head)
 {
-	t_node	*temp;
+	stack	*temp;
 	t_node	*last;
 
 	temp = (*head);
-	last = ft_last_node((*head));
-	last->next = temp;
-	temp->prev = last;
+	last = ft_last_node((*head)->node_lst);
+	last->next = temp->node_lst;
+	temp->node_lst->prev = last;
 }
 
 void	add_node_back(t_node **list_head, t_node *new)
@@ -62,13 +62,15 @@ void	add_node_back(t_node **list_head, t_node *new)
 	new->prev = last;
 }
 
-t_node	*create_node_list(int *len, long *list)
+stack	*create_node_list(int *len, long *list)
 {
 	t_node	*head;
 	t_node	*new;
+	stack	*stack_ptr;
 	int		i;
 
 	head = NULL;
+	stack_ptr = malloc(sizeof(stack));
 	i = 0;
 	while(i < *len)
 	{
@@ -77,5 +79,7 @@ t_node	*create_node_list(int *len, long *list)
 		i++;
 		list++;
 	}
-	return (head);
+	stack_ptr->node_lst = head;
+	stack_ptr->len = *len;
+	return (stack_ptr);
 }

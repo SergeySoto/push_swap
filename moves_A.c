@@ -12,29 +12,29 @@
 
 #include "push_swap.h"
 
-void	sa(t_node	**stack_a)
+void	sa(stack	**stack_a)
 {
-	if (!*stack_a || (*stack_a)->next == *stack_a)
+	if (!*stack_a || (*stack_a)->node_lst->next == (*stack_a)->node_lst)
 		return ;
 	swap(stack_a);
 	// write(1, "sa\n", 3);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b, int *len1, int *len2)
+void	pa(stack **stack_a, stack **stack_b)
 {
 	if (!*stack_a)
 		return ;
-	push(stack_a, stack_b, len1, len2);
+	push(stack_a, stack_b);
 	// write(1, "pa\n", 3);
 }
 
-void	ra(t_node **stack_a)
+void	ra(stack **stack_a)
 {
 	rotate(stack_a);
 	// write(1, "ra\n", 3);
 }
 
-void	rra(t_node **stack_a)
+void	rra(stack **stack_a)
 {
 	reverse_rotate(stack_a);
 	// write(1, "rra\n", 4);
