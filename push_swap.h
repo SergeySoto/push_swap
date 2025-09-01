@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/29 19:45:47 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:38:17 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	swap(stack **stack);
 void	sa(stack **stack_a);
 void	sb(stack **stack_b);
 void	ss(stack **stack_a, stack **stack_b);
-void	if_dest(stack **src, stack **dest);
+void	if_dest(t_node *first, stack **dest);
 void	push(stack **src, stack **dest);
 void	pa(stack **stack_a, stack **stack_b);
 void	pb(stack **stack_b, stack **stack_a);
@@ -51,6 +51,7 @@ void	rb(stack **stack_b);
 void	reverse_rotate(stack **node);
 void	rra(stack **stack_a);
 void	rrb(stack **stack_b);
+void	rr(stack **stack_a, stack **stack_b);
 void	rrr(stack **stack_a, stack **stack_b);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);

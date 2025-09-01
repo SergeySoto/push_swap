@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/29 19:44:50 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:50:14 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	// write(1, "puta!\n", 6);
-	// printf_error();
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     123  	", " \n\t")));
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("     1223f	", " \n\t")));
-	// ft_printf("is_number_valid: %d\n", is_number_valid(ft_strtrim("			   -12123		", " \n\t")));
-	// ft_printf("\n");
-	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483648"));
-	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483647"));
-	// printf("ft_atol NUM_MIN: %ld\n", ft_atol("-2147483649"));
-	// printf("ft_atol NUM_MAX: %ld\n", ft_atol("2147483648"));
-	// ft_printf("\n");
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483648")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483647")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("-2147483649")));
-	// ft_printf("is_int_in_range: %d\n", is_int_in_range(ft_atol("2147483648")));
-	//-----------------------------------------
 	int	len;
-
-	// int	len2;
-
-	// len2 = 0;
 	char **arr = get_input(argc, argv);
 
 	if (!arr)
@@ -42,14 +22,9 @@ int	main(int argc, char **argv)
 		free_array(arr);
 		return (0);
 	}
-	//ft_putstr_fd("Este es el array:\n", 2);
-	//print_array(arr);
 	long *list = parse_array(arr, &len);
 	if (!list)
 		return (0);
-	//ft_putstr_fd("Esta es la lista de int:\n", 2);
-	//print_list(len1, list);
-	//printf("la longitud: %d\n", len1);
 	if (!parse_list(list, &len))
 	{
 		free_array(arr);
@@ -58,30 +33,81 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack	*stack_a = create_node_list(&len, list);
-	stack	*stack_b = NULL;
+	stack	*stack_b = malloc(sizeof(stack));
+	stack_b->node_lst = NULL;
+	stack_b->len = 0;
 	list_to_circle(&stack_a);
+	// sa(&stack_a);
+	// pa(&stack_a, &stack_b);
+	// pa(&stack_a, &stack_b);
+	// pa(&stack_a, &stack_b);
+	// pa(&stack_a, &stack_b);
+	// pb(&stack_b, &stack_a);
+	// ra(&stack_a);
+	// rra(&stack_a);
+	// sb(&stack_b);
+	// pa(&stack_a, &stack_b);
+	// rr(&stack_a, &stack_b);
+	// rrr(&stack_a, &stack_b);
+	// rb(&stack_b);
+	// rrb(&stack_b);
+	// ss(&stack_a, &stack_b);
+	// printf("--------------Stack A--------------\n");
+	// lstiter(stack_a->node_lst, print_node);
+	// printf("--------------Stack B--------------\n");
+	// lstiter(stack_b->node_lst, print_node);
+	// printf("len1: %d\n", stack_a->len);
+	// printf("len2: %d\n", stack_b->len);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
-	sa(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
+	if (stack_a->len == 2)
+	{
+		if (stack_a->node_lst->data > stack_a->node_lst->next->data)
+			sa(&stack_a);
+	}
+	if (stack_a->len == 3)
+	{
+		int	a = stack_a->node_lst->data;
+		int	b = stack_a->node_lst->next->data;
+		int	c = stack_a->node_lst->next->next->data;
+		if (a < b && c < b && a < c)
+		{
+			rra(&stack_a);
+			sa(&stack_a);
+		}
+		else if (a > b && b < c && a < c)
+			sa(&stack_a);
+		else if (a < b && b > c && a > c)
+			rra(&stack_a);
+		else if (a > b && a > c && b < c)
+			ra(&stack_a);
+		else if(a > b && a > c & b > c)
+		{
+			ra(&stack_a);
+			sa(&stack_a);
+		}
+	//----------------------------------------------	
+		// if (a > b && a > c)
+		// 	ra(&stack_a);
+		// else if (b > a && b > c)
+		// 	rra(&stack_a);
+		// else if (a < b && c < b && a < c)
+		// {
+		// 	rra(&stack_a);
+		// 	sa(&stack_a);
+		// }
+		// else if (a > b && a < c)
+		// 	sa(&stack_a);
+		// int	a = stack_a->node_lst->data;
+		// int	b = stack_a->node_lst->next->data;
+		// int	c = stack_a->node_lst->next->next->data;
+	}
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
-	printf("--------------Stack B--------------\n");
-	lstiter(stack_b->node_lst, print_node);
-	ra(&stack_a);
-	printf("--------------Stack A--------------\n");
-	lstiter(stack_a->node_lst, print_node);
-	rra(&stack_a);
-	printf("--------------Stack A--------------\n");
-	lstiter(stack_a->node_lst, print_node);
-	printf("len1: %d\n", stack_a->len);
-	printf("len2: %d\n", stack_b->len);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	free_long(list);
 	free_array(arr);
-	//-----------------------------------------
 
 	return (0);
 }
