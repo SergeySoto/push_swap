@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/01 16:38:17 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:53:41 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	rra(stack **stack_a);
 void	rrb(stack **stack_b);
 void	rr(stack **stack_a, stack **stack_b);
 void	rrr(stack **stack_a, stack **stack_b);
+void	sort_two(stack **stack);
+void	sort_three(stack **stack);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);

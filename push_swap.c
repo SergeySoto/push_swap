@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/01 18:50:14 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:55:19 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,48 +60,8 @@ int	main(int argc, char **argv)
 	// printf("len2: %d\n", stack_b->len);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
-	if (stack_a->len == 2)
-	{
-		if (stack_a->node_lst->data > stack_a->node_lst->next->data)
-			sa(&stack_a);
-	}
-	if (stack_a->len == 3)
-	{
-		int	a = stack_a->node_lst->data;
-		int	b = stack_a->node_lst->next->data;
-		int	c = stack_a->node_lst->next->next->data;
-		if (a < b && c < b && a < c)
-		{
-			rra(&stack_a);
-			sa(&stack_a);
-		}
-		else if (a > b && b < c && a < c)
-			sa(&stack_a);
-		else if (a < b && b > c && a > c)
-			rra(&stack_a);
-		else if (a > b && a > c && b < c)
-			ra(&stack_a);
-		else if(a > b && a > c & b > c)
-		{
-			ra(&stack_a);
-			sa(&stack_a);
-		}
-	//----------------------------------------------	
-		// if (a > b && a > c)
-		// 	ra(&stack_a);
-		// else if (b > a && b > c)
-		// 	rra(&stack_a);
-		// else if (a < b && c < b && a < c)
-		// {
-		// 	rra(&stack_a);
-		// 	sa(&stack_a);
-		// }
-		// else if (a > b && a < c)
-		// 	sa(&stack_a);
-		// int	a = stack_a->node_lst->data;
-		// int	b = stack_a->node_lst->next->data;
-		// int	c = stack_a->node_lst->next->next->data;
-	}
+	sort_two(&stack_a);
+	sort_three(&stack_a);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
 	free_stack(stack_a);
