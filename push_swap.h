@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 19:04:03 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:15:19 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	rrr(stack **stack_a, stack **stack_b);
 void	sort_two(stack **stack);
 void	sort_three(stack **stack);
 long	*parse_input(int argc, char **argv, int *len);
+void	create_stack(int argc, char **argv, stack **stack_a, stack **stack_b);
 int		has_duplicates(int *size, long *num_list);
 int		is_int_in_range(long num);
 long	ft_atol(char *str);
@@ -76,7 +77,6 @@ int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 t_node	*find_last_node(t_node *stack);
-void	create_stack(int argc, char **argv, stack **stack_a, stack **stack_b);
-
+void	sort_numbers(stack **stack_a, stack **stack_b);
 
 #endif

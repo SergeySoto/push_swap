@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 19:07:53 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:17:43 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	main(int argc, char **argv)
 	create_stack(argc, argv, &stack_a, &stack_b);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
-	sort_two(&stack_a);
-	sort_three(&stack_a);
+	sort_numbers(&stack_a, &stack_b);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
 	free_stack(stack_a);

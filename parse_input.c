@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:10:28 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 19:05:42 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:14:44 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,10 @@ void	create_stack(int argc, char **argv, stack **stack_a, stack **stack_b)
 	(*stack_b)->len = 0;
 	list_to_circle(stack_a);
 	free_long(list);
+}
+
+void	sort_numbers(stack **stack_a, stack **stack_b)
+{
+	sort_two(stack_a);
+	sort_three(stack_b);
 }
