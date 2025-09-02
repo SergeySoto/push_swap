@@ -17,7 +17,7 @@ LIBFT = $(LIBFT_DIR)libft.a
 # Source files
 SRC = push_swap.c push_pars.c push_utils.c func_error.c nodes.c\
 get_input.c actions.c moves_A.c moves_B.c move_both.c\
-node_utils.c sort_algorithm.c\
+node_utils.c sort_algorithm.c parse_input.c\
       $(CHECK_UTILS_DIR)/prints.c\
 
 # Object files (with obj/ prefix)

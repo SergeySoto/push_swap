@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/08/27 19:04:02 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 18:14:50 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ stack	*create_node_list(int *len, long *list)
 	head = NULL;
 	stack_ptr = malloc(sizeof(stack));
 	i = 0;
+	// if (!stack_ptr)
+	// 	return NULL ;
 	while(i < *len)
 	{
 		new = ft_newnode((int)*list, i);

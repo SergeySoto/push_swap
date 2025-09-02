@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 16:55:19 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 18:42:34 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,30 @@
 
 int	main(int argc, char **argv)
 {
-	int	len;
-	char **arr = get_input(argc, argv);
+	int		len;
+	// char	**arr;
+	long	*list;
+	stack	*stack_a;
+	stack	*stack_b;
 
-	if (!arr)
-	{
-		free_array(arr);
-		return (0);
-	}
-	long *list = parse_array(arr, &len);
+	// arr = get_input(argc, argv);
+	// if (!arr)
+	// 	return (0);
+	// list = parse_array(arr, &len);
+	// if (!list)
+	// 	return (0);
+	// if (!parse_list(list, &len))
+	// {
+	// 	free_array(arr);
+	// 	free_long(list);
+	// 	printf_error();
+	// 	return (0);
+	// }
+	list = parse_input(argc, argv, &len);
 	if (!list)
-		return (0);
-	if (!parse_list(list, &len))
-	{
-		free_array(arr);
-		free_long(list);
-		printf_error();
-		return (0);
-	}
-	stack	*stack_a = create_node_list(&len, list);
-	stack	*stack_b = malloc(sizeof(stack));
+			return (0);
+	stack_a = create_node_list(&len, list);
+	stack_b = malloc(sizeof(stack));
 	stack_b->node_lst = NULL;
 	stack_b->len = 0;
 	list_to_circle(&stack_a);
@@ -67,7 +71,7 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	free_stack(stack_b);
 	free_long(list);
-	free_array(arr);
+	// free_array(arr);
 
 	return (0);
 }
