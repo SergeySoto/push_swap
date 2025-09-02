@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 18:42:34 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:07:53 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,26 @@
 
 int	main(int argc, char **argv)
 {
-	int		len;
-	// char	**arr;
-	long	*list;
 	stack	*stack_a;
 	stack	*stack_b;
 
-	// arr = get_input(argc, argv);
-	// if (!arr)
-	// 	return (0);
-	// list = parse_array(arr, &len);
-	// if (!list)
-	// 	return (0);
-	// if (!parse_list(list, &len))
-	// {
-	// 	free_array(arr);
-	// 	free_long(list);
-	// 	printf_error();
-	// 	return (0);
-	// }
-	list = parse_input(argc, argv, &len);
-	if (!list)
-			return (0);
-	stack_a = create_node_list(&len, list);
-	stack_b = malloc(sizeof(stack));
-	stack_b->node_lst = NULL;
-	stack_b->len = 0;
-	list_to_circle(&stack_a);
+	create_stack(argc, argv, &stack_a, &stack_b);
+	printf("--------------Stack A--------------\n");
+	lstiter(stack_a->node_lst, print_node);
+	sort_two(&stack_a);
+	sort_three(&stack_a);
+	printf("--------------Stack A--------------\n");
+	lstiter(stack_a->node_lst, print_node);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	return (0);
+}
+
+	// stack_a = create_node_list(&len, list);
+	// stack_b = malloc(sizeof(stack));
+	// stack_b->node_lst = NULL;
+	// stack_b->len = 0;
+	// list_to_circle(&stack_a);
 	// sa(&stack_a);
 	// pa(&stack_a, &stack_b);
 	// pa(&stack_a, &stack_b);
@@ -62,16 +55,3 @@ int	main(int argc, char **argv)
 	// lstiter(stack_b->node_lst, print_node);
 	// printf("len1: %d\n", stack_a->len);
 	// printf("len2: %d\n", stack_b->len);
-	printf("--------------Stack A--------------\n");
-	lstiter(stack_a->node_lst, print_node);
-	sort_two(&stack_a);
-	sort_three(&stack_a);
-	printf("--------------Stack A--------------\n");
-	lstiter(stack_a->node_lst, print_node);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	free_long(list);
-	// free_array(arr);
-
-	return (0);
-}
