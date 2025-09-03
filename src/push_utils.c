@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:09:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:49:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	len_array(char **array)
 	len = 0;
 	if (!array)
 		return (0);
-	while(array[len] != NULL)
+	while (array[len] != NULL)
 		len++;
 	return (len);
 }
@@ -30,12 +30,13 @@ long	ft_atol(char *str)
 	int		i;
 	int		symbol;
 	long	res;
+
 	if (!str)
 		return (0);
 	res = 0;
 	symbol = 1;
 	i = 0;
-	while(str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -43,7 +44,7 @@ long	ft_atol(char *str)
 			symbol *= -1;
 		i++;
 	}
-	while(str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = (res * 10) + (str[i] - '0');
 		i++;

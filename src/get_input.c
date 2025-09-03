@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-char *join_args(int argc, char **argv, char *initial_str)
+char	*join_args(int argc, char **argv, char *initial_str)
 {
 	int		i;
 	char	*joined_args;
@@ -20,7 +20,7 @@ char *join_args(int argc, char **argv, char *initial_str)
 
 	joined_args = initial_str;
 	i = 2;
-	while(i < argc)
+	while (i < argc)
 	{
 		temp = joined_args;
 		joined_args = ft_strjoin(temp, " ");
@@ -49,7 +49,7 @@ int	only_space(char *argv)
 	return (flag);
 }
 
-char	**get_input(int	argc, char **argv)
+char	**get_input(int argc, char **argv)
 {
 	char	**num_array;
 	char	*joined_args;

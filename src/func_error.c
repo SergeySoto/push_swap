@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 18:15:17 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 19:08:48 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void	printf_error(void)
 void	free_array(char **str)
 {
 	int	i;
+
 	if (!str)
 		return ;
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
@@ -44,13 +45,13 @@ void	free_long(long *str)
 		free(str);
 }
 
-void	free_stack(stack *node)
+void	free_stack(t_stack *node)
 {
 	int		i;
 	t_node	*temp;
 
 	i = 0;
-	while(i < node->len)
+	while (i < node->len)
 	{
 		temp = node->node_lst->next;
 		free(node->node_lst);

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:47:20 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_array(char **argv)
 	int	i;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		ft_putstr_fd(argv[i], 1);
 		printf("\n");
@@ -27,10 +27,10 @@ void	print_array(char **argv)
 
 void	print_list(int len, long *list)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		printf("%ld\n", list[i]);
 		i++;
@@ -45,7 +45,7 @@ void	print_node(t_node *node)
 void	lstiter(t_node *lst, void (f)(t_node *))
 {
 	t_node	*temp;
-	
+
 	temp = lst;
 	if (!lst)
 		return ;

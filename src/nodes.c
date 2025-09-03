@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 19:12:15 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ t_node	*ft_last_node(t_node *node)
 	return (node);
 }
 
-void	list_to_circle(stack **head)
+void	list_to_circle(t_stack **head)
 {
-	stack	*temp;
+	t_stack	*temp;
 	t_node	*last;
 
 	temp = (*head);
@@ -62,19 +62,19 @@ void	add_node_back(t_node **list_head, t_node *new)
 	new->prev = last;
 }
 
-stack	*create_node_list(int *len, long *list)
+t_stack	*create_node_list(int *len, long *list)
 {
 	t_node	*head;
 	t_node	*new;
-	stack	*stack_ptr;
+	t_stack	*stack_ptr;
 	int		i;
 
 	head = NULL;
-	stack_ptr = malloc(sizeof(stack));
+	stack_ptr = malloc(sizeof(t_stack));
 	i = 0;
 	if (!stack_ptr)
-		return NULL ;
-	while(i < *len)
+		return (NULL);
+	while (i < *len)
 	{
 		new = ft_newnode((int)*list, i);
 		add_node_back(&head, new);

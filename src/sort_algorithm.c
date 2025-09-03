@@ -6,13 +6,13 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 19:29:41 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_two(stack **stack)
+void	sort_two(t_stack **stack)
 {
 	if ((*stack)->len == 2)
 	{
@@ -21,13 +21,17 @@ void	sort_two(stack **stack)
 	}
 }
 
-void	sort_three(stack **stack)
+void	sort_three(t_stack **stack)
 {
+	int	a;
+	int	b;
+	int	c;
+
 	if ((*stack)->len == 3)
 	{
-		int	a = (*stack)->node_lst->data;
-		int	b = (*stack)->node_lst->next->data;
-		int	c = (*stack)->node_lst->next->next->data;
+		a = (*stack)->node_lst->data;
+		b = (*stack)->node_lst->next->data;
+		c = (*stack)->node_lst->next->next->data;
 		if (a > b && a > c)
 			ra(stack);
 		else if (b > a && b > c)
@@ -39,7 +43,63 @@ void	sort_three(stack **stack)
 	}
 }
 
-// void	sort_all(stack **stack_a, stack **stack_b)
+t_node	*find_smallest_node(t_stack *stack)
+{
+	t_node	*smallest;
+	t_node	*temp;
+	int		i;
+
+	smallest = stack->node_lst;
+	temp = stack->node_lst->next;
+	i = 1;
+	while (i < stack->len)
+	{
+		if (temp->data < smallest->data)
+			smallest = temp;
+		temp = temp->next;
+		i++;
+	}
+	return (smallest);
+}
+
+// // Find the target node in stack A for one node in stack B
+// t_node *find_target_node(t_node *stack_a, int b_value)
 // {
-	
+//     t_node *target = NULL;
+//     int min_diff = INT_MAX;
+
+//     while (stack_a)
+//     {
+//         int diff = stack_a->value - b_value;
+//         if (diff > 0 && diff < min_diff)
+//         {
+//             min_diff = diff;
+//             target = stack_a;
+//         }
+//         stack_a = stack_a->next;
+//     }
+
+//     // If no bigger value was found, return the smallest in A
+//     if (!target)
+//         target = find_smallest_node(stack_a);
+
+//     return target;
 // }
+
+// // Assign target nodes for all nodes in stack B
+// void assign_target_nodes(t_node *stack_a, t_node *stack_b)
+// {
+//     t_node *current_b = stack_b;
+//     while (current_b)
+//     {
+//         current_b->target_node = find_target_node(stack_a, current_b->value);
+//         current_b = current_b->next;
+//     }
+// }
+
+void	sort_all(t_stack **stack_a, t_stack **stack_b)
+{
+	while ((*stack_a)->len > 3)
+		pb(stack_a, stack_b);
+	sort_numbers(stack_a, stack_b);
+}
