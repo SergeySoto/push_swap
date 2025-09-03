@@ -6,11 +6,11 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:08:45 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/01 16:24:13 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // sa (swap a): Swap the first 2 elements at the top of the stack a. Does nothing if there is only one or none. 
 // sb (swap b) : Swap the first 2 elements at the top of the stack b. Does nothing if there is only one or none. 

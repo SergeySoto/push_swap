@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_B.c                                          :+:      :+:    :+:   */
+/*   moves_A.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/29 15:34:00 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/01 16:48:02 by ssoto-su         ###   ########.fr       */
+/*   Created: 2025/08/29 15:32:07 by ssoto-su          #+#    #+#             */
+/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	sb(stack **stack_b)
+void	sa(stack	**stack_a)
 {
-	if (!*stack_b || (*stack_b)->len < 2)
+	if (!*stack_a || (*stack_a)->len < 2)
 		return ;
-	swap(stack_b);
-	write(1, "sb\n", 3);
+	swap(stack_a);
+	write(1, "sa\n", 3);
 }
 
-void	pb(stack **stack_b, stack **stack_a)
+void	pa(stack **stack_a, stack **stack_b)
 {
-	if (!*stack_b)
+	if (!*stack_a)
 		return ;
-	push(stack_b, stack_a);
-	write(1, "pb\n", 3);
+	push(stack_a, stack_b);
+	write(1, "pa\n", 3);
 }
 
-void	rb(stack **stack_b)
+void	ra(stack **stack_a)
 {
-	rotate(stack_b);
-	write(1, "rb\n", 3);
+	rotate(stack_a);
+	write(1, "ra\n", 3);
 }
 
-void	rrb(stack **stack_b)
+void	rra(stack **stack_a)
 {
-	reverse_rotate(stack_b);
-	write(1, "rrb\n", 4);
+	reverse_rotate(stack_a);
+	write(1, "rra\n", 4);
 }

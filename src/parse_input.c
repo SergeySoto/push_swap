@@ -6,11 +6,11 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:10:28 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/02 19:14:44 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:15:33 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	*parse_input(int argc, char **argv, int *len)
 {
@@ -51,6 +51,9 @@ void	create_stack(int argc, char **argv, stack **stack_a, stack **stack_b)
 
 void	sort_numbers(stack **stack_a, stack **stack_b)
 {
-	sort_two(stack_a);
-	sort_three(stack_b);
+	(void)stack_b;
+	if ((*stack_a)->len == 2)
+		sort_two(stack_a);
+	else if ((*stack_a)->len == 3)
+		sort_three(stack_a);
 }

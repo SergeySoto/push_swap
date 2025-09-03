@@ -8,20 +8,18 @@ CFLAGS = -Wall -Wextra -Werror -I./libft
 SRC_DIR = .
 OBJ_DIR = obj
 LIBFT_DIR = ./libft/
-CHECK_UTILS_DIR = check_utils
 INCLUDE = ./libft/libft.h
 
 # Library
 LIBFT = $(LIBFT_DIR)libft.a
 
 # Source files
-SRC = push_swap.c push_pars.c push_utils.c func_error.c nodes.c\
-get_input.c actions.c moves_A.c moves_B.c move_both.c\
-node_utils.c sort_algorithm.c parse_input.c\
-      $(CHECK_UTILS_DIR)/prints.c\
+SRC = src/push_swap.c src/push_pars.c src/push_utils.c src/func_error.c src/nodes.c\
+src/get_input.c src/actions.c src/moves_A.c src/moves_B.c src/move_both.c\
+src/node_utils.c src/sort_algorithm.c src/parse_input.c src/prints.c\
 
 # Object files (with obj/ prefix)
-OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
+OBJ = $(patsubst src/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 # Default rule
 all: $(NAME)
@@ -33,7 +31,7 @@ $(NAME): $(OBJ) $(LIBFT)
 		echo "✅ Build successful!" || echo "❌ Build failed!"
 
 # Compile .c to .o into obj/
-$(OBJ_DIR)/%.o: %.c $(INCLUDE)
+$(OBJ_DIR)/%.o: src/%.c $(INCLUDE)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@ && \
 		echo "🟢 Compiled $<" || echo "🔴 Failed to compile $<"
