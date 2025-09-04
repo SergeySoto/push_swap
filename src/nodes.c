@@ -6,13 +6,13 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 19:12:15 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 16:55:39 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_node	*ft_newnode(int data, int index)
+t_node	*ft_newnode(int data, int position)
 {
 	t_node	*node;
 
@@ -20,7 +20,7 @@ t_node	*ft_newnode(int data, int index)
 	if (!node)
 		return (NULL);
 	node->data = data;
-	node->index = index;
+	node->pos = position;
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);

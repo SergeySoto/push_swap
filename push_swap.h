@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 19:26:21 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 16:53:45 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct t_node
 	int				data;
 	int				target;
 	int				index;
+	int				pos;
 	int				cost;
 	struct t_node	*prev;
 	struct t_node	*next;
@@ -32,13 +33,14 @@ typedef struct t_stack
 	int				len;
 }					t_stack;
 
-t_node	*ft_newnode(int data, int index);
+t_node	*ft_newnode(int data, int position);
 void	add_node_back(t_node **lst, t_node *new);
 t_node	*ft_last_node(t_node *node);
 t_stack	*create_node_list(int *len, long *list);
 t_node	*find_last_node(t_node *t_stack);
 void	lstiter(t_node *lst, void (f)(t_node *));
 void	list_to_circle(t_stack **head);
+void	set_pos(t_node *stack);
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
@@ -59,6 +61,7 @@ void	sort_numbers(t_stack **stack_a, t_stack **stack_b);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_all(t_stack **stack_a, t_stack **stack_b);
+t_node	*find_smallest_node(t_stack *stack);
 long	*parse_input(int argc, char **argv, int *len);
 void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b);
 int		has_duplicates(int *size, long *num_list);
@@ -80,7 +83,5 @@ char	**get_input(int argc, char **argv);
 int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
-t_node	*find_smallest_node(t_stack *stack);
-
 
 #endif

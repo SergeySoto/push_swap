@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:08:45 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/03 19:22:49 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 18:17:06 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,21 @@ void	swap(t_stack **stack)
 
 	if ((*stack)->len < 2)
 		return ;
-	first = (*stack)->node_lst;
-	second = first->next;
-	first->prev->next = second;
-	second->next->prev = first;
-	first->next = second->next;
-	second->prev = first->prev;
-	second->next = first;
-	first->prev = second;
-	(*stack)->node_lst = second;
+	else if ((*stack)->len >= 3)
+	{
+		first = (*stack)->node_lst;
+		second = first->next;
+		first->prev->next = second;
+		second->next->prev = first;
+		first->next = second->next;
+		second->prev = first->prev;
+		second->next = first;
+		first->prev = second;
+		(*stack)->node_lst = second;
+	}
+	else
+		(*stack)->node_lst = (*stack)->node_lst->next;
+	set_pos((*stack)->node_lst);
 }
 
 void	if_dest(t_node *first, t_stack **dest)
@@ -47,6 +53,7 @@ void	if_dest(t_node *first, t_stack **dest)
 		(*dest)->node_lst = first;
 	}
 	(*dest)->len++;
+	set_pos((*dest)->node_lst);
 }
 
 void	push(t_stack **src, t_stack **dest)
@@ -66,14 +73,17 @@ void	push(t_stack **src, t_stack **dest)
 	}
 	(*src)->len--;
 	if_dest(first, dest);
+	set_pos((*src)->node_lst);
 }
 
 void	rotate(t_stack **node)
 {
 	(*node)->node_lst = (*node)->node_lst->next;
+	set_pos((*node)->node_lst);
 }
 
 void	reverse_rotate(t_stack **node)
 {
 	(*node)->node_lst = (*node)->node_lst->prev;
+	set_pos((*node)->node_lst);
 }
