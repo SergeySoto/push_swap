@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:10:28 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/04 17:24:58 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 18:26:17 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b)
 	(*stack_b)->node_lst = NULL;
 	(*stack_b)->len = 0;
 	list_to_circle(stack_a);
-	// set_pos((*stack_a)->node_lst);
 	free_long(list);
 }
 

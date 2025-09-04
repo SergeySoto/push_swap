@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/04 16:55:39 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:12:53 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_node	*ft_newnode(int data, int position)
 	node->pos = position;
 	node->prev = NULL;
 	node->next = NULL;
+	node->index = -1;
 	return (node);
 }
 
@@ -83,5 +84,6 @@ t_stack	*create_node_list(int *len, long *list)
 	}
 	stack_ptr->node_lst = head;
 	stack_ptr->len = *len;
+	set_index(&stack_ptr);
 	return (stack_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:14 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:07:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_list(int len, long *list)
 
 void	print_node(t_node *node)
 {
-	printf("Node -> (P:%d , D:%d)\n", node->pos, node->data);
+	printf("Node -> (I:%d, P:%d , D:%d)\n", node->index, node->pos, node->data);
 }
 
 void	lstiter(t_node *lst, void (f)(t_node *))

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/04 18:14:18 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:43:13 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ void	sort_three(t_stack **stack)
 	}
 }
 
-t_node	*find_smallest_node(t_stack *stack)
+t_node	*find_smallest_node(t_stack **stack)
 {
 	t_node	*smallest;
 	t_node	*temp;
 	int		i;
 
-	smallest = stack->node_lst;
-	temp = stack->node_lst->next;
+	smallest = (*stack)->node_lst;
+	temp = (*stack)->node_lst->next;
 	i = 1;
-	while (i < stack->len)
+	while (i < (*stack)->len)
 	{
-		if (temp->data < smallest->data)
+		if (temp->data < smallest->data && smallest->index == -1)
 			smallest = temp;
 		temp = temp->next;
 		i++;
