@@ -33,15 +33,22 @@ typedef struct t_stack
 	int				len;
 }					t_stack;
 
+//Creating nodes and stacks functions
 t_node	*ft_newnode(int data, int position);
 void	add_node_back(t_node **lst, t_node *new);
 t_node	*ft_last_node(t_node *node);
 t_stack	*create_node_list(int *len, long *list);
-t_node	*find_last_node(t_node *t_stack);
-void	lstiter(t_node *lst, void (f)(t_node *));
 void	list_to_circle(t_stack **head);
+void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b);
+//Utils functions
+void	lstiter(t_node *lst, void (f)(t_node *));
+long	ft_atol(char *str);
+int		len_array(char **array);
+//Node utils functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
+t_node	*find_smallest_node(t_stack **stack);
+//Moves or actions functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
@@ -58,33 +65,33 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	push_b(t_stack **stack_a, t_stack **stack_b);
+//Sorting functions
 void	sort_numbers(t_stack **stack_a, t_stack **stack_b);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_all(t_stack **stack_a, t_stack **stack_b);
-t_node	*find_smallest_node(t_stack **stack);
-long	*parse_input(int argc, char **argv, int *len);
-void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b);
-int		has_duplicates(int *size, long *num_list);
-int		is_int_in_range(long num);
-long	ft_atol(char *str);
-int		is_number_valid(char *str);
 char	**get_input(int argc, char **argv);
-int		len_array(char **array);
+//Prints functions
 void	printf_error(void);
 void	print_array(char **argv);
 void	print_list(int len, long *list);
 void	print_node(t_node *node);
+//Free memory functions
 void	free_array(char **str);
 void	free_str(char *str);
 void	free_long(long *str);
 void	free_stack(t_stack *node);
+//Parsing functions
+long	*parse_input(int argc, char **argv, int *len);
+int		has_duplicates(int *size, long *num_list);
+int		is_int_in_range(long num);
+int		is_number_valid(char *str);
 char	*join_args(int argc, char **argv, char *initial_str);
 char	**get_input(int argc, char **argv);
 int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
-void	push_b(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(long *list, int len);
 
 #endif

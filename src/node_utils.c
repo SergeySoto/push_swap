@@ -12,19 +12,6 @@
 
 #include "../push_swap.h"
 
-t_node	*find_last_node(t_node *stack)
-{
-	t_node	*temp;
-
-	temp = stack;
-	while (1)
-	{
-		if (temp->next == stack)
-			return (temp);
-		temp = temp->next;
-	}
-}
-
 void	set_pos(t_node *stack)
 {
 	int		i;
