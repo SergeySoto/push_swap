@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/04 19:12:53 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/05 16:06:45 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_node	*ft_newnode(int data, int position)
 	node->prev = NULL;
 	node->next = NULL;
 	node->index = -1;
+	node->target = -1;
 	return (node);
 }
 

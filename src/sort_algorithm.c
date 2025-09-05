@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/05 11:58:36 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/05 16:02:34 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,32 @@ t_node	*find_smallest_node(t_stack **stack)
 	return (smallest);
 }
 
+void	push_b(t_stack **stack_a, t_stack **stack_b)
+{
+	int	i;
+	int	mid;
+	int	len;
+	int	pushed;
+
+	pushed = 0;
+	i = 0;
+	mid = ((*stack_a)->len / 2);
+	len = (*stack_a)->len;
+	while(pushed < mid && i < len)
+	{
+		if ((*stack_a)->node_lst->index < mid)
+		{
+			pb(stack_a, stack_b);
+			pushed++;
+		}
+		else
+			ra(stack_a);
+		i++;
+	}
+	while ((*stack_a)->len > 3)
+		pb(stack_a, stack_b);
+}
+
 // // Find the target node in stack A for one node in stack B
 // t_node *find_target_node(t_node *stack_a, int b_value)
 // {
@@ -109,7 +135,6 @@ t_node	*find_smallest_node(t_stack **stack)
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
-	while ((*stack_a)->len > 3)
-		pb(stack_a, stack_b);
+	push_b(stack_a, stack_b);
 	sort_numbers(stack_a, stack_b);
 }

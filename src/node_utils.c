@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:20:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/05 12:03:06 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/05 16:13:28 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,20 @@ void	set_index(t_stack **stack)
 		i++;
 	}
 }
+/*
+void	set_target(t_stack **stack)
+{
+	int		i;
+	t_node	*current;
+
+	i = 0;
+	current = (*stack)->node_lst;
+	while(i < (*stack)->len)
+	{
+		if (current->target == -1)
+		{
+			if ()
+		}
+	}
+}
+*/
