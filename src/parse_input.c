@@ -6,18 +6,18 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:10:28 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/05 16:59:25 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/05 17:33:30 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_sorted(long *list, int *len)
+int	is_sorted(long *list, int len)
 {
 	int	i;
 
 	i = 0;
-	while(i < len[0])
+	while(list[i] && i < len)
 	{
 		if (list[i] > list[i + 1])
 			return (1);
@@ -37,7 +37,7 @@ long	*parse_input(int argc, char **argv, int *len)
 	list = parse_array(arr, len);
 	if (!list)
 		return (0);
-	if (!is_sorted(list, len))
+	if (!is_sorted(list, *len))
 		return (0);
 	if (!parse_list(list, len))
 	{

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/05 16:58:17 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/05 17:16:58 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
-int		is_sorted(long *list, int *len);
+int		is_sorted(long *list, int len);
 
 #endif
