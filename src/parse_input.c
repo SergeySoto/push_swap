@@ -17,13 +17,13 @@ int	is_sorted(long *list, int len)
 	int	i;
 
 	i = 0;
-	while(list[i] && i < len)
+	while(i + 1 < len)
 	{
 		if (list[i] > list[i + 1])
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 long	*parse_input(int argc, char **argv, int *len)
@@ -37,8 +37,12 @@ long	*parse_input(int argc, char **argv, int *len)
 	list = parse_array(arr, len);
 	if (!list)
 		return (0);
-	if (!is_sorted(list, *len))
-		return (0);
+	if (is_sorted(list, *len))
+	{
+		free_array(arr);
+		free_long(list);
+		exit(0);
+	}
 	if (!parse_list(list, len))
 	{
 		free_long(list);

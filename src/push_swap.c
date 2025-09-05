@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	create_stack(argc, argv, &stack_a, &stack_b);
 	//printf("--------------Stack A--------------\n");
 	//lstiter(stack_a->node_lst, print_node);
-	//sort_numbers(&stack_a, &stack_b);
+	sort_numbers(&stack_a, &stack_b);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
 	// t_node *temp = find_smallest_node(stack_a);
