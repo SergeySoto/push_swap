@@ -96,11 +96,11 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	}
 	while ((*stack_a)->len > 3)
 		pb(stack_a, stack_b);
+	set_target(stack_a, stack_b);
 }
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	push_b(stack_a, stack_b);
-	set_target(stack_a, stack_b);
 	sort_numbers(stack_a, stack_b);
 }
