@@ -39,7 +39,7 @@ void	print_list(int len, long *list)
 
 void	print_node(t_node *node)
 {
-	printf("Node -> (I:%d, P:%d , D:%d)\n", node->index, node->pos, node->data);
+	printf("Node -> (T:%d, D:%d)\n", node->target, node->data);
 }
 
 void	lstiter(t_node *lst, void (f)(t_node *))

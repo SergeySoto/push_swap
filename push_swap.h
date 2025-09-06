@@ -39,7 +39,8 @@ void	add_node_back(t_node **lst, t_node *new);
 t_node	*ft_last_node(t_node *node);
 t_stack	*create_node_list(int *len, long *list);
 void	list_to_circle(t_stack **head);
-void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b);
+void	create_stack(int argc, char **argv, t_stack **stack_a,
+			t_stack **stack_b);
 //Utils functions
 void	lstiter(t_node *lst, void (f)(t_node *));
 long	ft_atol(char *str);
@@ -48,6 +49,8 @@ int		len_array(char **array);
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
 t_node	*find_smallest_node(t_stack **stack);
+t_node	*find_target(t_stack **stack_a, t_node *node_b);
+void	set_target(t_stack **stack_a, t_stack **stack_b);
 //Moves or actions functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
@@ -71,7 +74,6 @@ void	sort_numbers(t_stack **stack_a, t_stack **stack_b);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_all(t_stack **stack_a, t_stack **stack_b);
-char	**get_input(int argc, char **argv);
 //Prints functions
 void	printf_error(void);
 void	print_array(char **argv);
@@ -92,6 +94,6 @@ char	**get_input(int argc, char **argv);
 int		only_space(char *argv);
 long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
+char	**get_input(int argc, char **argv);
 int		is_sorted(long *list, int len);
-
 #endif

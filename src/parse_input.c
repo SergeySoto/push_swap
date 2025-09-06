@@ -17,7 +17,7 @@ int	is_sorted(long *list, int len)
 	int	i;
 
 	i = 0;
-	while(i + 1 < len)
+	while (i + 1 < len)
 	{
 		if (list[i] > list[i + 1])
 			return (0);
@@ -54,7 +54,8 @@ long	*parse_input(int argc, char **argv, int *len)
 	return (list);
 }
 
-void	create_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b)
+void	create_stack(int argc, char **argv, t_stack **stack_a,
+	t_stack **stack_b)
 {
 	int		len;
 	long	*list;

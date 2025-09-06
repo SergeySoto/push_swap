@@ -52,12 +52,12 @@ t_node	*find_smallest_node(t_stack **stack)
 	smallest = NULL;
 	current = (*stack)->node_lst;
 	i = 0;
-	while(i < (*stack)->len)
+	while (i < (*stack)->len)
 	{
 		if (current->index == -1)
 		{
 			smallest = current;
-			break;
+			break ;
 		}
 		current = current->next;
 		i++;
@@ -83,7 +83,7 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	i = 0;
 	mid = ((*stack_a)->len / 2);
 	len = (*stack_a)->len;
-	while(pushed < mid && i < len)
+	while (pushed < mid && i < len)
 	{
 		if ((*stack_a)->node_lst->index < mid)
 		{
@@ -98,43 +98,9 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		pb(stack_a, stack_b);
 }
 
-// // Find the target node in stack A for one node in stack B
-// t_node *find_target_node(t_node *stack_a, int b_value)
-// {
-//     t_node *target = NULL;
-//     int min_diff = INT_MAX;
-
-//     while (stack_a)
-//     {
-//         int diff = stack_a->value - b_value;
-//         if (diff > 0 && diff < min_diff)
-//         {
-//             min_diff = diff;
-//             target = stack_a;
-//         }
-//         stack_a = stack_a->next;
-//     }
-
-//     // If no bigger value was found, return the smallest in A
-//     if (!target)
-//         target = find_smallest_node(stack_a);
-
-//     return target;
-// }
-
-// // Assign target nodes for all nodes in stack B
-// void assign_target_nodes(t_node *stack_a, t_node *stack_b)
-// {
-//     t_node *current_b = stack_b;
-//     while (current_b)
-//     {
-//         current_b->target_node = find_target_node(stack_a, current_b->value);
-//         current_b = current_b->next;
-//     }
-// }
-
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	push_b(stack_a, stack_b);
+	set_target(stack_a, stack_b);
 	sort_numbers(stack_a, stack_b);
 }

@@ -16,14 +16,11 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+
 	create_stack(argc, argv, &stack_a, &stack_b);
-	//printf("--------------Stack A--------------\n");
-	//lstiter(stack_a->node_lst, print_node);
 	sort_numbers(&stack_a, &stack_b);
 	printf("--------------Stack A--------------\n");
 	lstiter(stack_a->node_lst, print_node);
-	// t_node *temp = find_smallest_node(stack_a);
-	// printf("smallest node: %d\n", temp->data);
 	printf("--------------Stack B--------------\n");
 	lstiter(stack_b->node_lst, print_node);
 	free_stack(stack_a);
