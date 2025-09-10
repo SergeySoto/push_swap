@@ -14,7 +14,7 @@ INCLUDE = ./libft/libft.h
 LIBFT = $(LIBFT_DIR)libft.a
 
 # Source files
-SRC = src/push_swap.c src/push_pars.c src/push_utils.c src/func_error.c src/nodes.c\
+SRC = src/push_swap.c src/parsing.c src/push_utils.c src/func_error.c src/nodes.c\
 src/get_input.c src/actions.c src/moves_A.c src/moves_B.c src/move_both.c\
 src/node_utils.c src/sort_algorithm.c src/parse_input.c src/prints.c\
 
