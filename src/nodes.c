@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/10 17:12:28 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:16:17 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,8 @@ void	list_to_circle(t_stack **head)
 	t_stack	*temp;
 	t_node	*last;
 
-	last = (*head)->node_lst;
 	temp = (*head);
-	while (last->next != NULL)
-		last = last->next;
-	// last = ft_last_node((*head)->node_lst);
+	last = ft_last_node((*head)->node_lst);
 	last->next = temp->node_lst;
 	temp->node_lst->prev = last;
 }
