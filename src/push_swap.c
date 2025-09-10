@@ -6,13 +6,13 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/10 16:58:49 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:21:34 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	set_cost(t_stack **stack_b)
+void	set_cost_b(t_stack **stack_b)
 {
 	int		size;
 	int		i;
@@ -27,6 +27,28 @@ void	set_cost(t_stack **stack_b)
 			node->cost_b = node->pos;
 		else if (node->pos > size)
 			node->cost_b = node->pos - (*stack_b)->len;
+		node = node->next;
+		i++;
+	}
+}
+
+void	set_cost_a(t_stack **stack_a, t_stack **stack_b)
+{
+	int		half_size;
+	int		i;
+	t_node	*node;
+	int		target_pos;
+
+	half_size = (*stack_a)->len / 2;
+	node = (*stack_b)->node_lst;
+	i = 0;
+	while(i < (*stack_b)->len)
+	{
+		target_pos = node->target;
+		if (target_pos <= half_size)
+			node->cost_a = target_pos;
+		else
+			node->cost_a = target_pos - (*stack_a)->len;
 		node = node->next;
 		i++;
 	}
