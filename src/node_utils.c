@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:20:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/08 17:52:20 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:57:41 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	set_target(t_stack **stack_a, t_stack **stack_b)
 	{
 		target_node = find_target(stack_a, aux);
 		if (target_node)
-			aux->target = target_node->data;
+			aux->target = target_node;
 		else
-			aux->target = (*stack_a)->node_lst->data;
+			aux->target = (*stack_a)->node_lst;
 		i++;
 		aux = aux->next;
 	}

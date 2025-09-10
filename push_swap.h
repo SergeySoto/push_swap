@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/10 17:18:22 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:56:26 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct t_node
 {
 	int				data;
-	int				target;
+	struct t_node	*target;
 	int				index;
 	int				pos;
 	int				cost_a;
