@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/11 16:12:54 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:54:10 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	set_index(t_stack **stack);
 t_node	*find_target(t_stack **stack_a, t_node *node_b);
 void	set_target(t_stack **stack_a, t_stack **stack_b);
 void	set_cost_b(t_stack **stack);
+void	set_cost_a(t_stack **stack_a, t_stack **stack_b);
 //Moves or actions functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
