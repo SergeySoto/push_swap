@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/10 18:56:26 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:12:54 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	list_to_circle(t_stack **head);
 void	create_stack(int argc, char **argv, t_stack **stack_a,
 			t_stack **stack_b);
 //Utils functions
-void	lstiter(t_node *lst, void (f)(t_node *));
 long	ft_atol(char *str);
 int		len_array(char **array);
+t_node	*find_smallest_node(t_stack **stack);
+t_node	*find_biggest_node(t_stack **stack);
 //Node utils functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
-t_node	*find_smallest_node(t_stack **stack);
 t_node	*find_target(t_stack **stack_a, t_node *node_b);
 void	set_target(t_stack **stack_a, t_stack **stack_b);
 void	set_cost_b(t_stack **stack);
@@ -82,6 +82,7 @@ void	printf_error(void);
 void	print_array(char **argv);
 void	print_list(int len, long *list);
 void	print_node(t_node *node);
+void	lstiter(t_node *lst, void (f)(t_node *));
 //Free memory functions
 void	free_array(char **str);
 void	free_str(char *str);
