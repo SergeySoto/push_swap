@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:20:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/11 15:55:05 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:07:56 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,6 @@ void	set_target(t_stack **stack_a, t_stack **stack_b)
 	i = 0;
 	while (i < (*stack_b)->len)
 	{
-		// if (nodo_b > mex_a || nodob < min a)
-		// 	ftspecial
-		// else
 		target_node = find_target(stack_a, aux);
 		if (target_node)
 			aux->target = target_node;
