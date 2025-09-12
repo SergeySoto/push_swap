@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/11 17:54:10 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:48:53 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,18 @@ void	create_stack(int argc, char **argv, t_stack **stack_a,
 long	ft_atol(char *str);
 int		len_array(char **array);
 t_node	*find_smallest_node(t_stack **stack);
-t_node	*find_biggest_node(t_stack **stack);
 //Node utils functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
-t_node	*find_target(t_stack **stack_a, t_node *node_b);
-void	set_target(t_stack **stack_a, t_stack **stack_b);
+//Cost functions
 void	set_cost_b(t_stack **stack);
 void	set_cost_a(t_stack **stack_a, t_stack **stack_b);
+t_node	*cheapest(t_stack **stack);
+//Target node functions
+t_node	*find_target_prev(t_stack **stack_b, t_node *node_a);
+void	set_target_prev(t_stack **stack_a, t_stack **stack_b);
+t_node	*find_target(t_stack **stack_a, t_node *node_b);
+void	set_target(t_stack **stack_a, t_stack **stack_b);
 //Moves or actions functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
@@ -62,8 +66,8 @@ void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	if_dest(t_node *first, t_stack **dest);
 void	push(t_stack **src, t_stack **dest);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_b, t_stack **stack_a);
+void	pa(t_stack **stack_b, t_stack **stack_a);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack_a);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);

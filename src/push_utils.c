@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:09:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/11 16:27:25 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:29:05 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,4 @@ t_node	*find_smallest_node(t_stack **stack)
 		i++;
 	}
 	return (smallest);
-}
-
-t_node	*find_biggest_node(t_stack **stack)
-{
-	t_node	*biggest;
-	t_node	*current;
-	int		i;
-
-	current = (*stack)->node_lst;
-	biggest = current;
-	i = 0;
-	while (i < (*stack)->len)
-	{
-		if (current->data > biggest->data)
-			biggest = current;
-		current = current->next;
-		i++;
-	}
-	return (biggest);
 }

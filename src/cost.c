@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:07:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/11 19:08:19 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/12 16:00:35 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,23 @@ void	set_cost_a(t_stack **stack_a, t_stack **stack_b)
 		node = node->next;
 		i++;
 	}
+}
+
+t_node	*cheapest(t_stack **stack)
+{
+	int		i;
+	t_node	*current;
+	t_node	*cheapest;
+
+	i = 0;
+	current = (*stack)->node_lst;
+	cheapest = current;
+	while(i < (*stack)->len)
+	{
+		if (current->cost_a + current->cost_b < cheapest->cost_a + cheapest->cost_b)
+			cheapest = current;
+		current = current->next;
+		i++;
+	}
+	return (cheapest);
 }
