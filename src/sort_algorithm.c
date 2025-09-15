@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/12 18:07:13 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/15 17:11:13 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,14 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
-	// set_target_prev(stack_a, stack_a);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
 	// push_b(stack_a, stack_b);
+	set_target_prev(stack_a, stack_b);
 	set_target(stack_a, stack_b);
-	// set_cost_b(stack_b);
-	// set_cost_a(stack_a, stack_b);
+	set_cost_b(stack_b);
+	set_cost_b(stack_a);
+	set_cost_a(stack_a, stack_b);
+	set_cost_a_for_A(stack_a, stack_b);
 	// sort_numbers(stack_a, stack_b);
 }

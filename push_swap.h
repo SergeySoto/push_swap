@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/12 17:48:53 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/15 16:28:13 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	set_index(t_stack **stack);
 //Cost functions
 void	set_cost_b(t_stack **stack);
 void	set_cost_a(t_stack **stack_a, t_stack **stack_b);
+void	set_cost_a_for_A(t_stack **stack_a, t_stack **stack_b);
 t_node	*cheapest(t_stack **stack);
 //Target node functions
 t_node	*find_target_prev(t_stack **stack_b, t_node *node_a);
