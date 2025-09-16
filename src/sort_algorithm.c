@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/15 17:26:45 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:42:34 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,48 +43,60 @@ void	sort_three(t_stack **stack)
 	}
 }
 
-void	push_b(t_stack **stack_a, t_stack **stack_b)
-{
-	int	i;
-	int	mid;
-	int	len;
-	int	pushed;
-
-	pushed = 0;
-	i = 0;
-	mid = ((*stack_a)->len / 2);
-	len = (*stack_a)->len;
-	while (pushed < mid && i < len)
-	{
-		if ((*stack_a)->node_lst->index < mid)
-		{
-			pb(stack_a, stack_b);
-			pushed++;
-		}
-		else
-			ra(stack_a);
-		i++;
-	}
-	while ((*stack_a)->len > 3)
-		pb(stack_a, stack_b);
-}
-
 // void	push_b(t_stack **stack_a, t_stack **stack_b)
 // {
-// 	t_node	*current;
+// 	int	i;
+// 	int	mid;
+// 	int	len;
+// 	int	pushed;
 
-// 	current = (*stack_a)->node_lst;
-// 	pb(stack_a,stack_b);
-// 	pb(stack_a,stack_b);
-// 	set_cost_b(stack_a);
-// 	while ((*stack_a)->len > 3)
+// 	pushed = 0;
+// 	i = 0;
+// 	mid = ((*stack_a)->len / 2);
+// 	len = (*stack_a)->len;
+// 	while (pushed < mid && i < len)
 // 	{
-		
+// 		if ((*stack_a)->node_lst->index < mid)
+// 		{
+// 			pb(stack_a, stack_b);
+// 			pushed++;
+// 		}
+// 		else
+// 			ra(stack_a);
+// 		i++;
 // 	}
+// 	while ((*stack_a)->len > 3)
+// 		pb(stack_a, stack_b);
 // }
+
+void	push_b(t_stack **stack_a, t_stack **stack_b)
+{
+	t_node	*current;
+	int		i;
+
+	current = (*stack_a)->node_lst;
+	i = 0;
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	while ((*stack_a)->len > 3)
+	{
+		set_target_prev(stack_a, stack_b);
+		set_target(stack_a, stack_b);
+		set_cost_b(stack_b);
+		set_cost_b(stack_a);
+		set_cost_a(stack_a, stack_b);
+		set_cost_a_for_A(stack_a, stack_b);
+		set_total_cost(stack_a);
+		if ()
+	}
+}
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
@@ -95,7 +107,13 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b)
 	set_cost_b(stack_b);
 	set_cost_b(stack_a);
 	set_cost_a(stack_a, stack_b);
-	set_cost_a_for_A(stack_a, stack_b);
-	cheapest(stack_a);
+	set_cost_a(stack_b, stack_a);
+	set_target_prev(stack_a, stack_b);
+	set_target(stack_a, stack_b);
+	set_cost_b(stack_b);
+	set_cost_b(stack_a);
+	set_cost_a(stack_a, stack_b);
+	set_cost_a(stack_b, stack_a);
+	// set_cost_a_for_A(stack_a, stack_b);
 	// sort_numbers(stack_a, stack_b);
 }

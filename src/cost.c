@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:07:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/15 17:45:17 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:50:55 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,27 @@ void	set_cost_a_for_A(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	cheapest(t_stack **stack)
+void	set_total_cost(t_stack **stack_src, t_stack **stack_dst)
 {
 	int		i;
+	int		half_a;
+	int		half_b;
 	t_node	*current;
-	t_node	*cheapest;
 
 	i = 0;
-	current = (*stack)->node_lst;
-	cheapest = current;
-	while(i < (*stack)->len)
+	current = (*stack_src)->node_lst;
+	half_a = (*stack_src)->len / 2;
+	half_b = (*stack_dst)->len / 2;
+	while (i < (*stack_src)->len)
 	{
-		current->total_cost = current->cost_a + current->cost_b;
-		if (current->total_cost < 0)
-			current->total_cost = current->total_cost * -1;
+		if (current->pos <= half_a && current->target->pos <= half_b)
+			path_1(&current);
+		else if (current->pos > half_a && current->target->pos > half_a)
+			path_2(&current);
+		else if (current->pos <= half_a && current->target->pos > half_b)
+			path_3(&current);
+		else
+			path_4(&current);
 		current = current->next;
 		i++;
 	}

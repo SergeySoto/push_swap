@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/15 17:30:39 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:50:39 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct t_node
 	int				cost_a;
 	int				cost_b;
 	int				total_cost;
+	int				path;
 	struct t_node	*prev;
 	struct t_node	*next;
 }					t_node;
@@ -43,18 +44,25 @@ t_stack	*create_node_list(int *len, long *list);
 void	list_to_circle(t_stack **head);
 void	create_stack(int argc, char **argv, t_stack **stack_a,
 			t_stack **stack_b);
-//Utils functions
+//Util functions
 long	ft_atol(char *str);
 int		len_array(char **array);
 t_node	*find_smallest_node(t_stack **stack);
-//Node utils functions
+int		ft_abs(int x);
+//Path
+void	path_1(t_node **node);
+void	path_2(t_node **node);
+void	path_3(t_node **node);
+void	path_4(t_node **node);
+//Nodes util functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
+t_node	*cheapest(t_stack **stack);
 //Cost functions
 void	set_cost_b(t_stack **stack);
 void	set_cost_a(t_stack **stack_a, t_stack **stack_b);
 void	set_cost_a_for_A(t_stack **stack_a, t_stack **stack_b);
-void	cheapest(t_stack **stack);
+void	set_total_cost(t_stack **stack_src, t_stack **stack_dst);
 //Target node functions
 t_node	*find_target_prev(t_stack **stack_b, t_node *node_a);
 void	set_target_prev(t_stack **stack_a, t_stack **stack_b);

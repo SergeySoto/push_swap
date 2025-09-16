@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:43:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/12 17:47:16 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:17:21 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ t_node	*find_target_prev(t_stack **stack_b, t_node *node_a)
 	{
 		if (current->data < node_a->data)
 		{
-			if (!prev_num || current->data > prev_num->data)
+			if (!prev_num)
+				prev_num = current;
+			if (current->data > prev_num->data)
 				prev_num = current;
 		}
 		current = current->next;
@@ -51,6 +53,7 @@ void	set_target_prev(t_stack **stack_a, t_stack **stack_b)
 			aux->target = target_node;
 		else
 			aux->target = (*stack_b)->node_lst;
+		printf("nodo = %d\ntarget = %d\n", aux->data, aux->target->data);
 		i++;
 		aux = aux->next;
 	}
