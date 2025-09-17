@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:31:10 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/16 17:48:02 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/17 19:27:33 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ void	path_1(t_node **node)
 
 void	path_2(t_node **node)
 {
-	if ((*node)->cost_a > (*node)->target->cost_b)
-		(*node)->total_cost = (*node)->cost_a;
+	int	a;
+	int	b;
+
+	a = ft_abs((*node)->cost_a);
+	b = ft_abs((*node)->target->cost_b);
+	if (a > b)
+		(*node)->total_cost = a;
 	else
-		(*node)->total_cost = (*node)->cost_b;
+		(*node)->total_cost = b;
 	(*node)->path = 2;
 }
 

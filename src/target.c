@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:43:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/16 19:17:21 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:18:07 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	set_target_prev(t_stack **stack_a, t_stack **stack_b)
 			aux->target = target_node;
 		else
 			aux->target = (*stack_b)->node_lst;
-		printf("nodo = %d\ntarget = %d\n", aux->data, aux->target->data);
 		i++;
 		aux = aux->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/16 18:50:39 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:00:02 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,21 @@ void	path_1(t_node **node);
 void	path_2(t_node **node);
 void	path_3(t_node **node);
 void	path_4(t_node **node);
+//Path move
+void	path_1_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
+void	path_2_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
+void	path_3_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
+void	path_4_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
+void	set_path(t_stack **stack_a, t_stack **stack_b, t_node *cheapest);
 //Nodes util functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
 t_node	*cheapest(t_stack **stack);
 //Cost functions
 void	set_cost_b(t_stack **stack);
-void	set_cost_a(t_stack **stack_a, t_stack **stack_b);
-void	set_cost_a_for_A(t_stack **stack_a, t_stack **stack_b);
+void	set_cost_a(t_stack **stack_a);
+void	set_cost_a_for_B(t_stack **stack_a, t_stack **stack_b);
+void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b);
 void	set_total_cost(t_stack **stack_src, t_stack **stack_dst);
 //Target node functions
 t_node	*find_target_prev(t_stack **stack_b, t_node *node_a);
