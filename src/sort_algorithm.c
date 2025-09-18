@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/17 20:19:22 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:13:22 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,6 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	while ((*stack_a)->len > 3)
 	{
 		set_target_prev(stack_b, stack_a);
-		set_target(stack_a, stack_b);
 		set_cost_b(stack_b);
 		set_cost_a(stack_a);
 		set_cost_a_for_B(stack_a, stack_b);
@@ -142,23 +141,16 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
 
-	// push_b(stack_a, stack_b);
 	set_target_prev(stack_a, stack_b);
-	set_target(stack_a, stack_b);
 	set_cost_b(stack_b);
 	set_cost_a(stack_a);
 	// set_cost_a_for_A(stack_a, stack_b);
-	set_total_cost(stack_a, stack_b);
-	set_total_cost(stack_b, stack_a);
-	t_node	*cheap = cheapest(stack_a);
-	print_node(cheap);
-	printf("path: %d\n", cheap->path);
+	// set_total_cost(stack_a, stack_b);
+	// set_total_cost(stack_b, stack_a);
+	// t_node	*cheap = cheapest(stack_a);
+	// print_node(cheap);
+	// printf("path: %d\n", cheap->path);
 	// if (cheap)
 	// 	pb(stack_a, stack_b);
 	// set_cost_a_for_A(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/17 20:00:02 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:29:05 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	create_stack(int argc, char **argv, t_stack **stack_a,
 long	ft_atol(char *str);
 int		len_array(char **array);
 t_node	*find_smallest_node(t_stack **stack);
+t_node	*find_biggest_node(t_stack **stack);
 int		ft_abs(int x);
 //Path
 void	path_1(t_node **node);
@@ -102,7 +103,8 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b);
 void	printf_error(void);
 void	print_array(char **argv);
 void	print_list(int len, long *list);
-void	print_node(t_node *node);
+void	print_node_A(t_node *node);
+void	print_node_B(t_node *node);
 void	lstiter(t_node *lst, void (f)(t_node *));
 //Free memory functions
 void	free_array(char **str);

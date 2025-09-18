@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/15 14:59:30 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:08:57 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(int argc, char **argv)
 	// set_cost_b(&stack_a);
 	sort_numbers(&stack_a, &stack_b);
 	printf("--------------Stack A--------------\n");
-	lstiter(stack_a->node_lst, print_node);
+	lstiter(stack_a->node_lst, print_node_A);
 	printf("--------------Stack B--------------\n");
-	lstiter(stack_b->node_lst, print_node);
+	lstiter(stack_b->node_lst, print_node_B);
 	// t_node	*nodo = find_target_prev(&stack_b, (*stack_a).node_lst);
 	// print_node(nodo);
 	// printf("%d\n", stack_b->node_lst->target->data);
