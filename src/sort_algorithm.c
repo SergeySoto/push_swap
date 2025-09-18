@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 15:13:22 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:47:51 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,54 +69,53 @@ void	sort_three(t_stack **stack)
 // 		pb(stack_a, stack_b);
 // }
 
-// void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst)
-// {
-// 	int		cost_a;
-// 	int		cost_b;
-// 	t_node	*cheap;
+void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst)
+{
+	int		cost_a;
+	int		cost_b;
+	t_node	*cheap;
 
-// 	cheap = cheapest(stack_src);
-// 	cost_a = cheap->cost_a;
-// 	cost_b = cheap->cost_b;
-// 	while (cost_a > 0 && cost_b > 0)
-// 	{
-// 		rr(stack_src, stack_dst);
-// 		cost_a--;
-// 		cost_b--;
-// 	}
-// 	while (cost_a < 0 && cost_b < 0)
-// 	{
-// 		rrr(stack_src, stack_dst);
-// 		cost_a++;
-// 		cost_b++;
-// 	}
-// 	while (cost_a > 0)
-// 	{
-// 		ra(stack_src);
-// 		cost_a--;
-// 	}
-// 	while (cost_a < 0)
-// 	{
-// 		rra(stack_src);
-// 		cost_a++;
-// 	}
-// 	while (cost_b > 0)
-// 	{
-// 		rb(stack_dst);
-// 		cost_b--;
-// 	}
-// 	while (cost_b < 0)
-// 	{
-// 		rrb(stack_dst);
-// 		cost_b++;
-// 	}
-// }
+	cheap = cheapest(stack_src);
+	cost_a = cheap->cost_a;
+	cost_b = cheap->cost_b;
+	while (cost_a > 0 && cost_b > 0)
+	{
+		rr(stack_src, stack_dst);
+		cost_a--;
+		cost_b--;
+	}
+	while (cost_a < 0 && cost_b < 0)
+	{
+		rrr(stack_src, stack_dst);
+		cost_a++;
+		cost_b++;
+	}
+	while (cost_a > 0)
+	{
+		ra(stack_src);
+		cost_a--;
+	}
+	while (cost_a < 0)
+	{
+		rra(stack_src);
+		cost_a++;
+	}
+	while (cost_b > 0)
+	{
+		rb(stack_dst);
+		cost_b--;
+	}
+	while (cost_b < 0)
+	{
+		rrb(stack_dst);
+		cost_b++;
+	}
+}
 
 
 void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_node	*current;
-	t_node	*node;
 	int		i;
 
 	current = (*stack_a)->node_lst;
@@ -125,27 +124,28 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	pb(stack_a, stack_b);
 	while ((*stack_a)->len > 3)
 	{
-		set_target_prev(stack_b, stack_a);
-		set_cost_b(stack_b);
+		set_target_prev(stack_a, stack_b);
 		set_cost_a(stack_a);
-		set_cost_a_for_B(stack_a, stack_b);
 		set_cost_b_for_A(stack_a, stack_b);
 		set_total_cost(stack_a, stack_b);
-		set_total_cost(stack_b, stack_a);
-		node = cheapest(stack_a);
-		set_path(stack_a, stack_b, node);
+		move_cheapest_to_top(stack_a, stack_b);
+		pb(stack_a, stack_b);
+		sort_three(stack_a);
+		rb(stack_b);
 	}
+	// while ((*stack_b)->len != 0)
+	// 	pa(stack_b, stack_a);
 }
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
+	push_b(stack_a, stack_b);
+	// pb(stack_a, stack_b);
+	// pb(stack_a, stack_b);
 
-	set_target_prev(stack_a, stack_b);
-	set_cost_b(stack_b);
-	set_cost_a(stack_a);
-	// set_cost_a_for_A(stack_a, stack_b);
+	// set_target_prev(stack_a, stack_b);
+	// set_cost_a(stack_a);
+	// set_cost_b_for_A(stack_a, stack_b);
 	// set_total_cost(stack_a, stack_b);
 	// set_total_cost(stack_b, stack_a);
 	// t_node	*cheap = cheapest(stack_a);

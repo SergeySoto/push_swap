@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:07:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/17 20:04:14 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:52:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b)
 	{
 		target_pos = node->target->pos;
 		if (target_pos <= half_size)
-			node->cost_a = target_pos;
+			node->cost_b = target_pos;
 		else
-			node->cost_a = target_pos - (*stack_b)->len;
+			node->cost_b = target_pos - (*stack_b)->len;
 		node = node->next;
 		i++;
 	}
