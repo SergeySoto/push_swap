@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 16:17:48 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:53:25 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_all(t_stack **stack_a, t_stack **stack_b);
 void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst);
+void	first_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
+void	second_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 //Prints functions
 void	printf_error(void);
 void	print_array(char **argv);

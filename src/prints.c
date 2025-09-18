@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 15:23:03 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:20:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	print_list(int len, long *list)
 
 void	print_node_A(t_node *node)
 {
-	printf("D:%d, T:%d, C_a:%d, C_b:%d , TC:%d\n", node->data, node->target->data, node->cost_a, node->cost_b, node->total_cost);
+	printf("D:%d\n", node->data);
 	// printf("Node -> ( I:%d, P:%d,  T:%d, D:%d)\n", node->index, node->pos, node->target->data, node->data);
 }
 
 void	print_node_B(t_node *node)
 {
-	printf("D:%d\n", node->data);
+	printf("D:%d C_B:%d\n", node->data, node->cost_b);
 	// printf("Node -> ( I:%d, P:%d,  T:%d, D:%d)\n", node->index, node->pos, node->target->data, node->data);
 }
 
