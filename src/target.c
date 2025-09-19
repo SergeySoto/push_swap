@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:43:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 15:33:05 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:11:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ t_node	*find_target(t_stack **stack_a, t_node *node_b)
 		current = current->next;
 	}
 	if (!target)
-		target = find_smallest_node(stack_a);
+	{
+		target = find_smallest_node_B(stack_a);
+	}
 	return (target);
 }
 

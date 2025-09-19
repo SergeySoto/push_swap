@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:07:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 15:52:59 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 19:53:55 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	set_cost_b(t_stack **stack_b)
 		if (node->pos <= size)
 			node->cost_b = node->pos;
 		else if (node->pos > size)
-			node->cost_b = node->pos - (*stack_b)->len;
+			node->cost_b = ft_abs(node->pos - (*stack_b)->len);
 		node = node->next;
 		i++;
 	}
@@ -46,7 +46,7 @@ void	set_cost_a(t_stack **stack_a)
 		if (node->pos <= size)
 			node->cost_a = node->pos;
 		else if (node->pos > size)
-			node->cost_a = node->pos - (*stack_a)->len;
+			node->cost_a = ft_abs(node->pos - (*stack_a)->len);
 		node = node->next;
 		i++;
 	}
@@ -68,7 +68,7 @@ void	set_cost_a_for_B(t_stack **stack_a, t_stack **stack_b)
 		if (target_pos <= half_size)
 			node->cost_a = target_pos;
 		else
-			node->cost_a = target_pos - (*stack_a)->len;
+			node->cost_a = ft_abs(target_pos - (*stack_a)->len);
 		node = node->next;
 		i++;
 	}
@@ -90,7 +90,7 @@ void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b)
 		if (target_pos <= half_size)
 			node->cost_b = target_pos;
 		else
-			node->cost_b = target_pos - (*stack_b)->len;
+			node->cost_b = ft_abs(target_pos - (*stack_b)->len);
 		node = node->next;
 		i++;
 	}
@@ -99,21 +99,21 @@ void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b)
 void	set_total_cost(t_stack **stack_src, t_stack **stack_dst)
 {
 	int		i;
-	int		half_a;
-	int		half_b;
+	int		half_src;
+	int		half_dst;
 	t_node	*current;
 
 	i = 0;
 	current = (*stack_src)->node_lst;
-	half_a = (*stack_src)->len / 2;
-	half_b = (*stack_dst)->len / 2;
+	half_src = (*stack_src)->len / 2;
+	half_dst = (*stack_dst)->len / 2;
 	while (i < (*stack_src)->len)
 	{
-		if (current->pos <= half_a && current->target->pos <= half_b)
+		if (current->pos <= half_src && current->target->pos <= half_dst)
 			path_1(&current);
-		else if (current->pos > half_a && current->target->pos > half_a)
+		else if (current->pos > half_src && current->target->pos > half_src)
 			path_2(&current);
-		else if (current->pos <= half_a && current->target->pos > half_b)
+		else if (current->pos <= half_src && current->target->pos > half_dst)
 			path_3(&current);
 		else
 			path_4(&current);

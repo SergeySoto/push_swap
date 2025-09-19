@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 19:25:51 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:16:11 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,32 +43,6 @@ void	sort_three(t_stack **stack)
 	}
 }
 
-// void	push_b(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	int	i;
-// 	int	mid;
-// 	int	len;
-// 	int	pushed;
-
-// 	pushed = 0;
-// 	i = 0;
-// 	mid = ((*stack_a)->len / 2);
-// 	len = (*stack_a)->len;
-// 	while (pushed < mid && i < len)
-// 	{
-// 		if ((*stack_a)->node_lst->index < mid)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			pushed++;
-// 		}
-// 		else
-// 			ra(stack_a);
-// 		i++;
-// 	}
-// 	while ((*stack_a)->len > 3)
-// 		pb(stack_a, stack_b);
-// }
-
 void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_node	*current;
@@ -86,65 +60,28 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		set_total_cost(stack_a, stack_b);
 		move_cheapest_to_top(stack_a, stack_b);
 		pb(stack_a, stack_b);
-		sort_three(stack_a);
 	}
-	// rrb(stack_b);
-	// rrb(stack_b);
-	// rrb(stack_b);
-	// set_target(stack_a, stack_b);
-	// move_cheapest_to_top(stack_a, stack_b);
-	// pb(stack_a, stack_b);
-	// set_target(stack_a, stack_b);
-	// move_cheapest_to_top(stack_a, stack_b);
-	// pb(stack_a, stack_b);
-	// set_target(stack_a, stack_b);
-	// move_cheapest_to_top(stack_a, stack_b);
-	// pb(stack_a, stack_b);
+	sort_three(stack_a);
+}
+
+void	push_a(t_stack **stack_a, t_stack **stack_b)
+{
+	t_node	*cheap;
 	while ((*stack_b)->len > 0)
 	{
 		set_target(stack_a, stack_b);
 		set_cost_b(stack_b);
 		set_cost_a_for_B(stack_a, stack_b);
 		set_total_cost(stack_b, stack_a);
-		move_cheapest_to_top(stack_b, stack_a);
+		cheap = cheapest(stack_b);
+		if (cheap)
+			set_path(stack_b, stack_a, cheap);
 		pa(stack_b, stack_a);
 	}
-	// while (i < 3)
-	// {
-	// pa(stack_b, stack_a);
-	
-	// 	i++;
-	// }
-	// i = 0;
-	// while (i < 3)
-	// {
-	// 	set_target_prev(stack_a, stack_b);
-	// 	set_cost_a(stack_a);
-	// 	set_cost_b_for_A(stack_a, stack_b);
-	// 	set_total_cost(stack_a, stack_b);
-	// 	move_cheapest_to_top(stack_a, stack_b);
-	// 	pb(stack_a, stack_b);
-	// 	// sort_three(stack_a);
-	// 	// rb(stack_b);
-	// 	i++;
-	// }
-	// // 	pa(stack_b, stack_a);
 }
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	push_b(stack_a, stack_b);
-
-	// set_target_prev(stack_a, stack_b);
-	// set_cost_a(stack_a);
-	// set_cost_b_for_A(stack_a, stack_b);
-	// set_total_cost(stack_a, stack_b);
-	// set_total_cost(stack_b, stack_a);
-	// t_node	*cheap = cheapest(stack_a);
-	// print_node(cheap);
-	// printf("path: %d\n", cheap->path);
-	// if (cheap)
-	// 	pb(stack_a, stack_b);
-	// set_cost_a_for_A(stack_a, stack_b);
-	// sort_numbers(stack_a, stack_b);
+	push_a(stack_a, stack_b);
 }

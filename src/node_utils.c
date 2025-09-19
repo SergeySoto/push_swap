@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:20:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 17:20:09 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 18:36:39 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst)
 	t_node	*cheap;
 
 	cheap = cheapest(stack_src);
+	// if (cheap)
+	// set_path(stack_src, stack_dst, cheap);
 	first_sort(stack_src, stack_dst, cheap);
 	second_sort(stack_src, stack_dst, cheap);
 }

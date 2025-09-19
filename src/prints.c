@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:43:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 19:20:59 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 19:07:36 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	print_node_A(t_node *node)
 
 void	print_node_B(t_node *node)
 {
-	printf("D:%d C_B:%d\n", node->data, node->cost_b);
+	// printf("Path:%d\n", node->path);
+	printf("D:%d\n", node->data);
+	// printf("D:%d T:%d, C_A:%d, C_B:%d, T_C:%d\n", node->data, node->target->data, node->cost_a, node->cost_b, node->total_cost);
 	// printf("Node -> ( I:%d, P:%d,  T:%d, D:%d)\n", node->index, node->pos, node->target->data, node->data);
 }
 

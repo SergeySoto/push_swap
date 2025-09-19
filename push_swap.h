@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/18 18:53:25 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:15:29 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	path_1_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_2_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_3_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_4_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
-void	set_path(t_stack **stack_a, t_stack **stack_b, t_node *cheapest);
+void	set_path(t_stack **stack_b, t_stack **stack_a, t_node *cheapest);
 //Nodes util functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
@@ -94,6 +94,7 @@ void	rrb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
 //Sorting functions
 void	sort_numbers(t_stack **stack_a, t_stack **stack_b);
 void	sort_two(t_stack **stack);
@@ -102,6 +103,8 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b);
 void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst);
 void	first_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 void	second_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
+void	final_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
+t_node	*find_smallest_node_B(t_stack **stack);
 //Prints functions
 void	printf_error(void);
 void	print_array(char **argv);
@@ -126,4 +129,5 @@ long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 char	**get_input(int argc, char **argv);
 int		is_sorted(long *list, int len);
+
 #endif
