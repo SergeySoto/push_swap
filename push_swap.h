@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 20:15:29 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:23:51 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	first_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 void	second_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 void	final_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 t_node	*find_smallest_node_B(t_stack **stack);
+void	put_small_top(t_stack **stack_a);
 //Prints functions
 void	printf_error(void);
 void	print_array(char **argv);

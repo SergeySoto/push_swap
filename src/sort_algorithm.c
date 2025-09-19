@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:19 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 20:16:11 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:26:42 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,25 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+void	put_small_top(t_stack **stack_a)
+{
+	t_node	*current;
+	t_node	*smallest;
+
+	current = (*stack_a)->node_lst;
+	smallest = find_smallest_node_B(stack_a);
+	while (current->prev->next == (*stack_a)->node_lst)
+	{
+		if (smallest == (*stack_a)->node_lst)
+			break ;
+		current = current->next;
+		ra(stack_a);
+	}
+}
+
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
 	push_b(stack_a, stack_b);
 	push_a(stack_a, stack_b);
+	put_small_top(stack_a);
 }
