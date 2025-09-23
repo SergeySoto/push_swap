@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:43:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 20:11:59 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/22 19:52:26 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,73 @@ t_node	*find_target(t_stack **stack_a, t_node *node_b)
 	}
 	return (target);
 }
+// static void	set_pos_aux(t_stack **stack)
+// {
+// 	int		i;
+// 	t_node	*temp;
 
+// 	i = 0;
+// 	temp = (*stack)->node_lst;
+// 	while (1)
+// 	{
+// 		temp->pos = i;
+// 		temp = temp->next;
+// 		if (temp == (*stack)->node_lst)
+// 			break ;
+// 		i++;
+// 	}
+// }
+
+static int	find_smallest_pos(t_node **stack_a)
+{
+	t_node	*aux;
+	t_node	*lowest;
+	int		pos;
+
+	aux = *stack_a;
+	lowest = *stack_a;
+	pos = 0;
+	while (aux)
+	{
+		if (lowest->index > aux->index)
+		{
+			pos = aux->pos;
+			lowest = aux;
+		}
+		aux = aux->next;
+	}
+	return (pos);
+}
 void	set_target(t_stack **stack_a, t_stack **stack_b)
 {
-	int		i;
+	t_node *aux_a;
+	t_node *aux_b;
+	t_node *lolita;
+
+	// set_pos_aux(stack_a);
+	// set_pos_aux(stack_b);
+	aux_a = (*stack_a)->node_lst;
+	aux_b = (*stack_b)->node_lst;
+	while(1)
+	{
+		lolita = NULL;
+		while(1)
+		{
+			if(aux_a->index > aux_b->index && (lolita == NULL || lolita->index > aux_a->index))
+				lolita = aux_a;
+			aux_a = aux_a->next;
+			if(aux_a == (*stack_a)->node_lst)
+				break;
+		}
+		if(lolita)
+			aux_b->target_pos = lolita->pos;
+		else
+			aux_b->target_pos = find_smallest_pos(&(*stack_a)->node_lst);
+		aux_b = aux_b->next;
+		if (aux_b == (*stack_b)->node_lst)
+			break;
+	}
+/* 	int		i;
 	t_node	*target_node;
 	t_node	*aux;
 
@@ -106,5 +169,6 @@ void	set_target(t_stack **stack_a, t_stack **stack_b)
 			aux->target = (*stack_a)->node_lst;
 		i++;
 		aux = aux->next;
-	}
+	} */
+
 }

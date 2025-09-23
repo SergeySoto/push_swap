@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 20:23:51 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 12:30:17 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct t_node
 	int				data;
 	struct t_node	*target;
 	int				index;
+	int				target_pos;
 	int				pos;
 	int				cost_a;
 	int				cost_b;
@@ -61,6 +62,7 @@ void	path_2_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_3_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_4_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	set_path(t_stack **stack_b, t_stack **stack_a, t_node *cheapest);
+void	cheapest_path(t_stack **stack_b, t_stack **stack_a, t_node *cheapest);
 //Nodes util functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
@@ -130,5 +132,7 @@ long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 char	**get_input(int argc, char **argv);
 int		is_sorted(long *list, int len);
+
+int node_size(t_node **stack);
 
 #endif

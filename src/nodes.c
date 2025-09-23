@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:37:26 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/16 16:28:46 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 12:10:32 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_node	*ft_newnode(int data, int position)
 	node->cost_b = 0;
 	node->total_cost = 0;
 	node->path = 0;
+	node->target_pos = 0;
 	return (node);
 }
 

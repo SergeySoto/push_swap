@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:07:35 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 19:53:55 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 16:51:43 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,26 +98,16 @@ void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b)
 
 void	set_total_cost(t_stack **stack_src, t_stack **stack_dst)
 {
-	int		i;
-	int		half_src;
-	int		half_dst;
-	t_node	*current;
+	t_node *aux_b;
+	t_node *aux_a;
 
-	i = 0;
-	current = (*stack_src)->node_lst;
-	half_src = (*stack_src)->len / 2;
-	half_dst = (*stack_dst)->len / 2;
-	while (i < (*stack_src)->len)
+	aux_b = (*stack_src)->node_lst;
+	aux_a = (*stack_dst)->node_lst;
+	while(1)
 	{
-		if (current->pos <= half_src && current->target->pos <= half_dst)
-			path_1(&current);
-		else if (current->pos > half_src && current->target->pos > half_src)
-			path_2(&current);
-		else if (current->pos <= half_src && current->target->pos > half_dst)
-			path_3(&current);
-		else
-			path_4(&current);
-		current = current->next;
-		i++;
+		aux_b->total_cost = ft_abs(aux_b->cost_a) + ft_abs(aux_b->cost_b);
+		aux_b = aux_b->next;
+		if(aux_b == (*stack_src)->node_lst)
+			break;
 	}
 }

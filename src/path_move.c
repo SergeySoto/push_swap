@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:00:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/19 20:04:41 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 12:53:55 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@ void	path_2_move(t_stack **stack_b, t_stack **stack_a, t_node *cheapest)
 
 	cost_a = cheapest->cost_a;
 	cost_b = cheapest->cost_b;
-	while (cost_a > 0 && cost_b > 0)
+	while (cost_a < 0 && cost_b < 0)
 	{
 		rrr(stack_b,stack_a);
-		cost_a--;
-		cost_b--;
+		cost_a++;
+		cost_b++;
 	}
-	while (cost_a > 0)
+	while (cost_a < 0)
 	{
 		rra(stack_a);
-		cost_a--;
+		cost_a++;
 	}
-	while (cost_b > 0)
+	while (cost_b < 0)
 	{
 		rrb(stack_b);
-		cost_b--;
+		cost_b++;
 	}
 }
 
@@ -69,15 +69,25 @@ void	path_3_move(t_stack **stack_b, t_stack **stack_a, t_node *cheapest)
 
 	cost_a = cheapest->cost_a;
 	cost_b = cheapest->cost_b;
-	while (cost_a > 0)
+	while (cost_a < 0)
 	{
 		rra(stack_a);
-		cost_a--;
+		cost_a++;
 	}
-	while (cost_b > 0)
+	while(cost_b > 0)
 	{
 		rb(stack_b);
 		cost_b--;
+	}
+	while(cost_a > 0)
+	{
+		ra(stack_a);
+		cost_a--;
+	}
+	while (cost_b < 0)
+	{
+		rrb(stack_b);
+		cost_b++;
 	}
 }
 
@@ -95,8 +105,18 @@ void	path_4_move(t_stack **stack_b, t_stack **stack_a, t_node *cheapest)
 	}
 	while (cost_b > 0)
 	{
-		rrb(stack_b);
+		rb(stack_b);
 		cost_b--;
+	}
+	while(cost_a < 0)
+	{
+		rra(stack_a);
+		cost_a++;
+	}
+	while(cost_b < 0)
+	{
+		rrb(stack_b);
+		cost_b++;
 	}
 }
 
