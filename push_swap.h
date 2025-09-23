@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 18:38:26 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:42:33 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,18 @@ long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 char	**get_input(int argc, char **argv);
 int		is_sorted(long *list, int len);
+//bonus
+void	sa_bonus(t_stack	**stack_a);
+void	pa_bonus(t_stack **stack_b, t_stack **stack_a);
+void	ra_bonus(t_stack **stack_a);
+void	rra_bonus(t_stack **stack_a);
+void	sb_bonus(t_stack **stack_b);
+void	pb_bonus(t_stack **stack_a, t_stack **stack_b);
+void	rb_bonus(t_stack **stack_b);
+void	rrb_bonus(t_stack **stack_b);
+void	ss_bonus(t_stack **stack_a, t_stack **stack_b);
+void	rr_bonus(t_stack **stack_a, t_stack **stack_b);
+void	rrr_bonus(t_stack **stack_a, t_stack **stack_b);
+int		stack_is_sorted(t_stack **stack);
 
 #endif
