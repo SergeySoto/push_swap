@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:17:58 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 12:30:17 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 18:38:26 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,19 @@ void	path_1_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_2_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_3_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
 void	path_4_move(t_stack **stack_src, t_stack **stack_dst, t_node *cheapest);
-void	set_path(t_stack **stack_b, t_stack **stack_a, t_node *cheapest);
 void	cheapest_path(t_stack **stack_b, t_stack **stack_a, t_node *cheapest);
 //Nodes util functions
 void	set_pos(t_node *stack);
 void	set_index(t_stack **stack);
 t_node	*cheapest(t_stack **stack);
+int		node_size(t_node **stack);
 //Cost functions
-void	set_cost_b(t_stack **stack);
-void	set_cost_a(t_stack **stack_a);
-void	set_cost_a_for_B(t_stack **stack_a, t_stack **stack_b);
-void	set_cost_b_for_A(t_stack **stack_a, t_stack **stack_b);
+int		calc_cost(t_node **stack, int pos);
+void	set_cost(t_stack **stack_a, t_stack **stack_b);
 void	set_total_cost(t_stack **stack_src, t_stack **stack_dst);
 //Target node functions
-t_node	*find_target_prev(t_stack **stack_b, t_node *node_a);
-void	set_target_prev(t_stack **stack_a, t_stack **stack_b);
 t_node	*find_target(t_stack **stack_a, t_node *node_b);
-void	set_target(t_stack **stack_a, t_stack **stack_b);
+void	set_target(t_stack **stack_a, t_stack **stack_b, t_node *lolita);
 //Moves or actions functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
@@ -96,24 +92,23 @@ void	rrb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
+void	push_b_p2(t_stack **stack_a, t_stack **stack_b);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
 //Sorting functions
 void	sort_numbers(t_stack **stack_a, t_stack **stack_b);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_all(t_stack **stack_a, t_stack **stack_b);
-void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst);
-void	first_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
-void	second_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
 void	final_sort(t_stack **stack_src, t_stack **stack_dst, t_node *cheap);
-t_node	*find_smallest_node_B(t_stack **stack);
+t_node	*find_smallest_node_b(t_stack **stack);
+int		stack_size(t_stack **stack);
 void	put_small_top(t_stack **stack_a);
 //Prints functions
 void	printf_error(void);
 void	print_array(char **argv);
 void	print_list(int len, long *list);
-void	print_node_A(t_node *node);
-void	print_node_B(t_node *node);
+void	print_node_a(t_node *node);
+void	print_node_b(t_node *node);
 void	lstiter(t_node *lst, void (f)(t_node *));
 //Free memory functions
 void	free_array(char **str);
@@ -132,7 +127,5 @@ long	*parse_array(char **array, int *len);
 int		parse_list(long	*num_list, int *len);
 char	**get_input(int argc, char **argv);
 int		is_sorted(long *list, int len);
-
-int node_size(t_node **stack);
 
 #endif

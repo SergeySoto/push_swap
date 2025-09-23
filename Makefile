@@ -16,8 +16,8 @@ LIBFT = $(LIBFT_DIR)libft.a
 # Source files
 SRC = src/push_swap.c src/parsing.c src/push_utils.c src/func_error.c src/nodes.c\
 src/get_input.c src/actions.c src/moves_A.c src/moves_B.c src/move_both.c\
-src/node_utils.c src/sort_algorithm.c src/parse_input.c src/prints.c src/cost.c\
-src/target.c src/path.c src/path_move.c src/algorithm_utils.c\
+src/node_utils.c src/sorting_p1.c src/sorting_p2.c src/parse_input.c src/prints.c \
+src/cost.c src/target.c src/path.c src/path_move.c src/algorithm_utils.c\
 
 # Object files (with obj/ prefix)
 OBJ = $(patsubst src/%.c, $(OBJ_DIR)/%.o, $(SRC))

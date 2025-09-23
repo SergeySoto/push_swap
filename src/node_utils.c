@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:20:40 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 16:55:46 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/23 18:00:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,25 @@ t_node	*cheapest(t_stack **stack)
 		if (current->total_cost < cheapest->total_cost)
 			cheapest = current;
 		current = current->next;
-		if(current == (*stack)->node_lst)
-			break;
+		if (current == (*stack)->node_lst)
+			break ;
 	}
 	return (cheapest);
 }
 
-void	move_cheapest_to_top(t_stack **stack_src, t_stack **stack_dst)
+int	node_size(t_node **stack)
 {
-	t_node	*cheap;
+	t_node	*aux;
+	int		i;
 
-	cheap = cheapest(stack_src);
-	first_sort(stack_src, stack_dst, cheap);
-	second_sort(stack_src, stack_dst, cheap);
+	i = 0;
+	aux = (*stack);
+	while (1)
+	{
+		i++;
+		aux = aux->next;
+		if ((*stack) == aux)
+			break ;
+	}
+	return (i);
 }
