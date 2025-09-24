@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/24 13:37:59 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/24 14:09:31 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_both_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a)
 		free_stack((*stack_a));
-	if (stack_b) 
+	if (stack_b)
 		free_stack((*stack_b));
 	ft_putstr_fd("Error\n", 2);
 	exit(2);
@@ -106,7 +106,6 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	// lstiter(stack_a->node_lst, print_node_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
