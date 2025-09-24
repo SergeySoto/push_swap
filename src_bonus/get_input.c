@@ -57,7 +57,7 @@ char	**get_input(int argc, char **argv)
 	num_array = NULL;
 	if (argc == 1)
 		return (NULL);
-	if (only_space(&argv[1][0]))
+	if (only_space(&argv[1][0])) //"     " "3 2 1" 5 4 6 Debe aceptar este input
 	{
 		joined_args = ft_strdup(argv[1]);
 		if (argc > 2)
