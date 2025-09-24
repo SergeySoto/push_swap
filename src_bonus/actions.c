@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:08:45 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 20:58:15 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/24 13:46:43 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,14 @@ void	push(t_stack **src, t_stack **dest)
 
 void	rotate(t_stack **node)
 {
+	if (!(*node)->node_lst || (*node)->len == 0)
+		return ;
 	(*node)->node_lst = (*node)->node_lst->next;
 }
 
 void	reverse_rotate(t_stack **node)
 {
+	if (!(*node)->node_lst || (*node)->len == 0)
+		return ;
 	(*node)->node_lst = (*node)->node_lst->prev;
 }

@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:02:27 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 21:17:41 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/24 13:37:59 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,18 @@ int	node_size(t_node **stack)
 
 int	stack_is_sorted(t_stack **stack)
 {
+	t_node	*aux;
+	int		len;
 	int		i;
 
+	aux = (*stack)->node_lst;
+	len = node_size(&(*stack)->node_lst);
 	i = 0;
-	while (i < node_size(&(*stack)->node_lst) - 1)
+	while (i < len - 1)
 	{
-		if ((*stack)->node_lst->data > (*stack)->node_lst->next->data)
+		if (aux->data > aux->next->data)
 			return (0);
-		(*stack)->node_lst = (*stack)->node_lst->next;
+		aux = aux->next;
 		i++;
 	}
 	return (1);
@@ -98,10 +102,11 @@ int	main(int argc, char **argv)
 		free(line);
 		line = get_next_line(0);
 	}
-	if (stack_is_sorted(&stack_a) == 1)
+	if (stack_is_sorted(&stack_a) == 1 && stack_b->node_lst == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	// lstiter(stack_a->node_lst, print_node_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

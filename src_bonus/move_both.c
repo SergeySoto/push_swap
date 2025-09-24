@@ -6,7 +6,7 @@
 /*   By: ssoto-su <ssoto-su@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:36:18 by ssoto-su          #+#    #+#             */
-/*   Updated: 2025/09/23 20:13:41 by ssoto-su         ###   ########.fr       */
+/*   Updated: 2025/09/24 13:44:30 by ssoto-su         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@ void	ss_bonus(t_stack **stack_a, t_stack **stack_b)
 
 void	rr_bonus(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!(*stack_a)->node_lst && !(*stack_b)->node_lst)
+		return ;
 	rotate(stack_a);
 	rotate(stack_b);
 }
 
 void	rrr_bonus(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!(*stack_a)->node_lst && !(*stack_b)->node_lst)
+		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
 }
